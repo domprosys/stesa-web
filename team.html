@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STESA Team</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-shadow: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: #0066cc;
+            text-shadow: none;
+            background-color: rgba(0, 102, 204, 0.1);
+        }
+        
+        .nav-links a.active {
+            background-color: rgba(0, 102, 204, 0.2);
+            color: #0066cc;
+            font-weight: 600;
+        }
+        
+        /* Content styles */
+        .content {
+            max-width: 900px;
+            margin: 120px auto 40px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        /* Team grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-member-photo {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .team-member-info {
+            padding: 15px;
+        }
+        
+        .team-member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .team-member-role {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .team-member-bio {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Mobile menu toggle button (only visible on mobile) -->
+        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- Empty div for layout consistency (helps with centering) -->
+        <div class="nav-home-link">
+            <!-- Removed STESA text -->
+        </div>
+        <!-- Regular nav links (hidden on mobile) -->
+        <div class="nav-links">
+            <a href="index.html" data-translate="home">Acasa</a>
+            <a href="about.html" data-translate="about">Despre</a>
+            <a href="projects.html" data-translate="projects">Proiecte</a>
+            <a href="team.html" class="active" data-translate="team">Echipă</a>
+            <a href="contact.html" data-translate="contact">Contact</a>
+        </div>
+        <div class="language-switcher">
+            <button id="lang-en" class="active">EN</button>
+            <button id="lang-ro">RO</button>
+        </div>
+    </nav>
+    
+    <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
+    
+    <div class="content">
+        <h1>Our Team</h1>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-member-photo" style="background-color: #0066cc;"></div>
+                <div class="team-member-info">
+                    <div class="team-member-name">Dr. Elena Popescu</div>
+                    <div class="team-member-role">Society Division Lead</div>
+                    <div class="team-member-bio">With a PhD in Sociology, Elena brings expertise in how emerging technologies impact social structures and human behavior.</div>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-member-photo" style="background-color: #cc00cc;"></div>
+                <div class="team-member-info">
+                    <div class="team-member-name">Andrei Ionescu</div>
+                    <div class="team-member-role">Technology Division Lead</div>
+                    <div class="team-member-bio">A computer scientist specializing in AI and machine learning, Andrei drives our technological innovation initiatives.</div>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-member-photo" style="background-color: #009900;"></div>
+                <div class="team-member-info">
+                    <div class="team-member-name">Maria Dumitrescu</div>
+                    <div class="team-member-role">Sports Division Lead</div>
+                    <div class="team-member-bio">Former Olympic athlete and sports scientist, Maria explores how technology can enhance athletic performance and experience.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="js/particles-background.js"></script>
+    <script src="js/animation-manager.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>

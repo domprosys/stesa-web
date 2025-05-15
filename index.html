@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STESA - Emergent Tech in Sports & Arts</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        #random-subtitle {
+            font-family: 'Fira Mono', monospace !important;
+            color: #111 !important;
+            background-color: #fff !important;
+            padding: 6px 18px !important;
+            border-radius: 4px !important;
+            font-size: 1.4rem !important;
+            letter-spacing: 0.03em !important;
+        }
+    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Main styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Exo 2', sans-serif;
+            color: #333;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Hero section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-title-container {
+            background: transparent;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            padding: 20px 0 25px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+        
+        .hero-default {
+            transition: opacity 0.5s ease;
+        }
+        
+        .hero-default.hidden {
+            display: none;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 10px;
+            color: #ffffff;
+            text-shadow: none;
+        }
+        
+        .hero h1 .s1,
+        .hero h1 .t,
+        .hero h1 .e,
+        .hero h1 .s2,
+        .hero h1 .a {
+            color: #ffffff;
+        }
+        
+        /* Animated gradient separator */
+        .gradient-separator {
+            width: 300px; /* Wider separator */
+            height: 4px;
+            margin: 15px auto 10px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900, #cc9900);
+            background-size: 300% 100%;
+            animation: gradient-flow 8s ease infinite;
+        }
+        
+        @keyframes gradient-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .hero h1 .subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+            color: #555;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        /* Feature boxes */
+        .boxes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+            position: relative;
+            z-index: 10; /* Ensure boxes are above other elements */
+        }
+        
+        .box {
+            width: 180px;
+            height: 180px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer; /* Add pointer cursor */
+            pointer-events: auto; /* Ensure clicks are registered */
+            z-index: 15; /* Higher z-index than parent */
+        }
+        
+        .box.active {
+            transform: scale(1.2);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .box-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* Feature content */
+        .feature-content {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: left;
+            color: #333;
+        }
+        
+        .feature-content.active {
+            display: block;
+        }
+        
+        .feature-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .feature-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .close-feature {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-feature:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Typewriter effect */
+        .typewriter-text {
+            display: inline-block;
+        }
+        
+        /* Page content */
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+                letter-spacing: 5px;
+            }
+            
+            .box {
+                width: 120px;
+                height: 120px;
+                margin: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+            
+            .box {
+                width: 100px;
+                height: 100px;
+                margin: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Mobile menu toggle button (only visible on mobile) -->
+        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- Empty div for layout consistency (helps with centering) -->
+        <div class="nav-home-link">
+            <!-- Removed STESA text -->
+        </div>
+        <!-- Regular nav links (hidden on mobile) -->
+        <div class="nav-links">
+            <a href="index.html" class="active" data-translate="home">Acasa</a>
+            <a href="about.html" data-translate="about">Despre</a>
+            <a href="projects.html" data-translate="projects">Proiecte</a>
+            <a href="team.html" data-translate="team">Echipă</a>
+            <a href="contact.html" data-translate="contact">Contact</a>
+        </div>
+        <div class="language-switcher">
+            <button id="lang-en" class="active">EN</button>
+            <button id="lang-ro">RO</button>
+        </div>
+    </nav>
+    
+    <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
+    <div class="hero">
+        <div class="hero-title-container">
+            <!-- Default hero content -->
+            <div class="hero-default">
+                <h1>
+                    <span class="s1">S</span>
+                    <span class="t">T</span>
+                    <span class="e">E</span>
+                    <span class="s2">S</span>
+                    <span class="a">A</span>
+                </h1>
+                <div class="gradient-separator"></div>
+                <div class="subtitle-container">
+                    <p id="random-subtitle" data-translate="hero-subtitle">Exploring the intersection of technology, society, sports, and arts</p>
+                </div>
+            </div>
+            
+            <!-- Society feature content -->
+            <div class="feature-content society" id="society-content">
+                <button class="close-feature">&times;</button>
+                <h2 data-translate="society-title">Society</h2>
+                <p data-translate="society-description">STESA's Society division explores the intersection of emerging technologies and social structures. We investigate how technological advancements shape human interactions, communities, and societal norms.</p>
+                <p data-translate="society-research">Our research focuses on ensuring that technological progress benefits humanity as a whole, addressing issues of digital divide, technological ethics, and sustainable development.</p>
+                <p data-translate="society-collaboration">Through collaborative projects with sociologists, anthropologists, and policy makers, we develop frameworks for responsible innovation that prioritizes human well-being and social cohesion.</p>
+            </div>
+            
+            <!-- Technology feature content -->
+            <div class="feature-content technology" id="technology-content">
+                <button class="close-feature">&times;</button>
+                <h2 data-translate="technology-title">Technology</h2>
+                <p data-translate="technology-description">The Technology division at STESA is dedicated to researching and developing cutting-edge technological solutions across multiple domains. Our work spans artificial intelligence, extended reality (XR), biotechnology, and quantum computing.</p>
+                <p data-translate="technology-innovation">We believe in technology as an enabler of human potential, focusing on innovations that enhance capabilities while remaining accessible and intuitive. Our interdisciplinary approach ensures that technological development is guided by real-world needs.</p>
+                <p data-translate="technology-projects">Current projects include adaptive AI systems for personalized learning, immersive XR environments for cultural preservation, and quantum algorithms for complex problem-solving in healthcare and environmental science.</p>
+            </div>
+            
+            <!-- Sports feature content -->
+            <div class="feature-content sports" id="sports-content">
+                <button class="close-feature">&times;</button>
+                <h2 data-translate="sports-title">Sports</h2>
+                <p data-translate="sports-description">STESA's Sports division explores how emerging technologies can enhance athletic performance, training methodologies, and spectator experiences. We work at the cutting edge of sports science, biomechanics, and immersive technologies.</p>
+                <p data-translate="sports-research">Our research includes developing advanced motion capture systems for performance analysis, creating personalized training programs based on biometric data, and designing immersive viewing experiences that bring fans closer to the action.</p>
+                <p data-translate="sports-collaboration">By collaborating with athletes, coaches, and sports organizations, we ensure that our technological innovations address real challenges in the sporting world while promoting fair play, accessibility, and athlete well-being.</p>
+            </div>
+            
+            <!-- Arts feature content -->
+            <div class="feature-content arts" id="arts-content">
+                <button class="close-feature">&times;</button>
+                <h2 data-translate="arts-title">Arts</h2>
+                <p data-translate="arts-description">The Arts division at STESA explores the creative potential of emerging technologies in visual arts, music, performance, and interactive experiences. We believe that technology can expand artistic expression while preserving the human element that makes art meaningful.</p>
+                <p data-translate="arts-projects">Our projects include developing new digital tools for artists, creating immersive installations that respond to audience interaction, and exploring how AI can collaborate with human creators to produce novel artistic works.</p>
+                <p data-translate="arts-partnerships">Through partnerships with artists, cultural institutions, and creative technologists, we're building a future where technology enhances rather than replaces human creativity, opening new avenues for artistic expression and audience engagement.</p>
+            </div>
+        </div>
+        
+    <!-- Section Boxes: Fixed Bottom Left -->
+    <div class="boxes">
+        <div class="box" id="society-box">
+            <div class="box-label" data-translate="society-title" style="color: #0066cc;">Societate</div>
+        </div>
+        <div class="box" id="tech-box">
+            <div class="box-label" data-translate="technology-title" style="color: #cc00cc;">Tehnologie</div>
+        </div>
+        <div class="box" id="sports-box">
+            <div class="box-label" data-translate="sports-title" style="color: #009900;">Sport</div>
+        </div>
+        <div class="box" id="arts-box">
+            <div class="box-label" data-translate="arts-title" style="color: #cc9900;">Arte</div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="js/particles-background.js"></script>
+    <script src="js/animation-manager.js"></script>
+    <script src="js/boxes.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/subtitle-rotator.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About STESA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset any potential conflicting styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Simple centered container */
+        .about-container {
+            width: 800px;
+            max-width: 90%;
+            margin: 120px auto 60px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            padding: 45px 50px;
+            box-sizing: border-box;
+            position: relative;
+            left: 0 !important;
+            right: 0 !important;
+            transform: none !important;
+        }
+        
+        .about-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900);
+        }
+        
+        .about-container h1 {
+            font-family: 'Exo 2', sans-serif;
+            color: #111;
+            margin-bottom: 35px;
+            font-size: 2.8rem;
+            text-align: center;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .about-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: rgba(0, 102, 204, 0.7);
+        }
+        
+        .about-container p {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            text-align: left;
+        }
+        
+        .about-container p:last-child {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .about-container {
+                margin: 100px auto 40px;
+                padding: 35px 30px;
+            }
+            
+            .about-container h1 {
+                font-size: 2.4rem;
+            }
+            
+            .about-container p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-container {
+                max-width: 95%;
+                margin: 90px auto 30px;
+                padding: 25px 20px;
+            }
+            
+            .about-container h1 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Mobile menu toggle button (only visible on mobile) -->
+        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- Empty div for layout consistency (helps with centering) -->
+        <div class="nav-home-link">
+            <!-- Removed STESA text -->
+        </div>
+        <!-- Regular nav links (hidden on mobile) -->
+        <div class="nav-links">
+            <a href="index.html" data-translate="home">Acasa</a>
+            <a href="about.html" class="active" data-translate="about">Despre</a>
+            <a href="projects.html" data-translate="projects">Proiecte</a>
+            <a href="team.html" data-translate="team">Echipă</a>
+            <a href="contact.html" data-translate="contact">Contact</a>
+        </div>
+        <div class="language-switcher">
+            <button id="lang-en" class="active">EN</button>
+            <button id="lang-ro">RO</button>
+        </div>
+    </nav>
+    
+    <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
+    
+    <div class="about-container">
+        <h1 data-translate="about-title">About STESA</h1>
+        <p data-translate="about-intro">At STESA, we believe that expression takes many forms — a gesture, a movement, a brushstroke, a codebase. In a time when technology mediates nearly every facet of human experience, we explore how arts and sports — long seen as separate worlds — are converging through new tools, spaces, and logics.</p>
+        <p data-translate="about-mission">We see the artist and the athlete not as opposites, but as kin: bodies in motion, engaging systems, seeking form, rhythm, and meaning. Whether it's through movement, visual expression, or digital immersion, they both craft experiences that resonate, provoke, and connect.</p>
+        <p data-translate="about-history">Technology is no longer just a tool — it is a stage, a collaborator, a new kind of canvas or arena. From AI-generated choreography to gamified physical spaces, from interactive installations to digitally enhanced performance, the boundaries are blurring.</p>
+        <p data-translate="about-vision">STESA exists to cultivate this shared terrain of human expression, supporting projects that are not defined by discipline, but by curiosity, embodiment, and innovation.</p>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="js/particles-background.js"></script>
+    <script src="js/animation-manager.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>

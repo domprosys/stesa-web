@@ -1,0 +1,462 @@
+/* Mobile fixes for STESA website */
+@media (max-width: 768px) {
+  /* Force hero elements to be visible and position them 50px below navbar */
+  .hero-title-container,
+  .hero-default,
+  .hero h1,
+  .gradient-separator,
+  .subtitle-container,
+  #random-subtitle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 100 !important;
+  }
+
+  /* Make title spans display inline for horizontal layout */
+  .hero h1 span {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 100 !important;
+  }
+
+  /* Subtitle styling */
+  .subtitle-container,
+  #random-subtitle {
+    font-size: 0.9rem !important;
+    max-width: 90% !important;
+    margin: 0 auto 5px auto !important; /* Significantly reduce bottom margin */
+    padding: 5px !important; /* Reduce padding */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* Adjust hero section positioning */
+  .hero {
+    padding-top: 70px !important; /* Add 50px more padding to move hero down from navbar */
+    padding-bottom: 0 !important; /* Reduce bottom padding to decrease space to boxes */
+    margin-bottom: 0 !important; /* Eliminate bottom margin */
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: auto !important; /* Override min-height to prevent extra space */
+    height: auto !important;
+  }
+
+  /* Set specific margins for hero title container */
+  .hero-title-container {
+    margin: 160px 0 0 0 !important; /* 160px top margin, 0 for other sides */
+    padding: 0 !important;
+    background-color: transparent !important; /* Remove any background color */
+  }
+
+  /* Remove margins from hero-default */
+  .hero-default {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+  }
+
+  /* Force the hero and all its children to have no extra space */
+  .hero > *,
+  .hero-title-container > *,
+  .hero-default > * {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: transparent !important;
+  }
+
+  /* Fix the layout to bring boxes immediately after subtitle */
+  .hero {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  /* Ensure boxes container is positioned directly after subtitle */
+  .boxes {
+    position: relative !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-top: 10px !important; /* Small gap between subtitle and boxes */
+  }
+
+  /* Mobile-friendly navbar styling - ONLY for screens <= 480px */
+  @media (max-width: 480px) {
+    .navbar {
+      padding: 10px 15px !important;
+      background-color: rgba(3, 11, 53, 0.9) !important; /* Match the dark blue background */
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+    }
+
+    /* Hide the regular nav links on mobile */
+    .nav-links {
+      display: none !important; /* Hide by default */
+    }
+
+    /* Show hamburger menu icon */
+    .mobile-menu-toggle {
+      display: block !important;
+      cursor: pointer !important;
+      order: 1 !important;
+      flex: 1 !important;
+      text-align: left !important;
+    }
+  }
+
+  /* Hide mobile menu toggle on desktop */
+  @media (min-width: 481px) {
+    .mobile-menu-toggle {
+      display: none !important;
+    }
+  }
+
+  /* Style the hamburger icon */
+  .hamburger-icon {
+    display: inline-block !important;
+    width: 30px !important;
+    height: 20px !important;
+    position: relative !important;
+    margin: 0 !important;
+  }
+
+  .hamburger-icon span {
+    display: block !important;
+    position: absolute !important;
+    height: 3px !important;
+    width: 100% !important;
+    background: white !important;
+    border-radius: 3px !important;
+    opacity: 1 !important;
+    left: 0 !important;
+    transform: rotate(0deg) !important;
+    transition: .25s ease-in-out !important;
+  }
+
+  .hamburger-icon span:nth-child(1) {
+    top: 0px !important;
+  }
+
+  .hamburger-icon span:nth-child(2) {
+    top: 8px !important;
+  }
+
+  .hamburger-icon span:nth-child(3) {
+    top: 16px !important;
+  }
+
+  /* Mobile-specific styles for language switcher */
+  @media (max-width: 480px) {
+    /* Align the language switcher to the right */
+    .language-switcher {
+      order: 2 !important;
+      flex: 1 !important;
+      justify-content: flex-end !important;
+      padding-right: 15px !important;
+    }
+
+    /* Style the language switcher buttons */
+    .language-switcher button {
+      background-color: transparent !important;
+      color: white !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      padding: 5px 10px !important;
+      border-radius: 4px !important;
+      margin: 0 5px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .language-switcher button.active {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      border-color: rgba(255, 255, 255, 0.5) !important;
+    }
+  }
+
+  /* Mobile menu when expanded - ONLY for screens <= 480px */
+  @media (max-width: 480px) {
+    .mobile-menu-expanded .nav-links {
+      display: flex !important;
+      flex-direction: column !important;
+      position: absolute !important;
+      top: 50px !important;
+      left: 0 !important;
+      width: 100% !important;
+      background-color: rgba(3, 11, 53, 0.95) !important;
+      padding: 20px 0 !important;
+      z-index: 1000 !important;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+      align-items: center !important;
+    }
+
+    .mobile-menu-expanded .nav-links a {
+      color: white !important;
+      padding: 15px 0 !important;
+      width: 100% !important;
+      text-align: center !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Style for the STESA text in navbar */
+    .nav-home-link span {
+      color: white !important;
+      font-family: 'Exo 2', sans-serif !important;
+      font-size: 1.2rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      padding: 8px 16px !important;
+      text-transform: uppercase !important;
+    }
+
+    .mobile-menu-expanded .hamburger-icon span:nth-child(1) {
+      top: 8px !important;
+      transform: rotate(45deg) !important;
+    }
+
+    .mobile-menu-expanded .hamburger-icon span:nth-child(2) {
+      opacity: 0 !important;
+    }
+
+    .mobile-menu-expanded .hamburger-icon span:nth-child(3) {
+      top: 8px !important;
+      transform: rotate(-45deg) !important;
+    }
+  }
+
+  /* Adjust gradient separator spacing with higher specificity */
+  .hero .hero-title-container .hero-default .gradient-separator {
+    margin: 10px auto 10px !important; /* Set top and bottom margins to 10px */
+    width: 80% !important; /* Make it slightly narrower on mobile */
+  }
+
+  /* Additional selector to ensure gradient separator styling is applied */
+  html body .gradient-separator {
+    margin: 10px auto 10px !important; /* Set top and bottom margins to 10px */
+  }
+
+  /* STESA title styling */
+  .hero h1 {
+    font-size: 5rem !important;
+    color: white !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
+    text-align: center !important;
+    white-space: nowrap !important; /* Prevent wrapping */
+    letter-spacing: 0.2em !important; /* Add spacing between letters */
+    margin-bottom: 0 !important; /* Remove bottom margin */
+    display: block !important; /* Ensure the h1 is a block element */
+  }
+
+  /* Gradient separator styling */
+  .gradient-separator {
+    width: 80% !important;
+    height: 4px !important;
+    margin: 15px auto 25px !important;
+    background: linear-gradient(90deg, #0066cc, #cc00cc, #009900, #cc9900) !important;
+    background-size: 300% 100% !important;
+    animation: gradient-flow 8s ease infinite !important;
+  }
+
+  /* Perfect 2x2 Grid for boxes with equal spacing */
+  .boxes {
+    position: relative !important; /* Override fixed positioning */
+    left: auto !important; /* Override left positioning */
+    right: auto !important;
+    bottom: auto !important; /* Override bottom positioning */
+    top: auto !important;
+    width: 100% !important; /* Use full width of container */
+    max-width: 450px !important; /* Adjusted maximum size */
+    display: grid !important; /* Override flex display */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; /* Force equal columns */
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) !important; /* Force equal rows */
+    grid-auto-rows: minmax(0, 1fr) !important; /* Ensure all rows have equal height */
+    grid-auto-columns: minmax(0, 1fr) !important; /* Ensure all columns have equal width */
+    gap: 20px !important; /* Fixed pixel gap for consistent spacing */
+    padding: 0 !important; /* Remove padding to avoid uneven spacing */
+    margin: 0 auto 30px auto !important; /* Eliminated top margin to minimize space from hero */
+    justify-content: stretch !important; /* Stretch grid content to fill container */
+    align-content: stretch !important;
+    justify-items: stretch !important; /* Stretch grid items to fill cells */
+    align-items: stretch !important;
+    box-sizing: border-box !important;
+    float: none !important; /* Prevent floating */
+    transform: none !important; /* Prevent any transforms */
+    flex-direction: unset !important; /* Remove flex direction */
+    flex-wrap: unset !important; /* Remove flex wrap */
+    aspect-ratio: 1/1 !important; /* Force square aspect ratio for the grid */
+  }
+
+  /* Box sizing to completely fill grid cells */
+  .box,
+  #society-box.box,
+  #tech-box.box,
+  #sports-box.box,
+  #arts-box.box,
+  div.box,
+  body .boxes-container .box {
+    width: 100% !important; /* Fill entire cell width */
+    height: 100% !important; /* Fill entire cell height */
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    background-color: rgba(255, 255, 255, 0.15) !important; /* Semi-transparent background */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important; /* Ensure content doesn't overflow */
+    float: none !important; /* Prevent floating */
+    transform: none !important; /* Prevent any transforms */
+    min-width: 100% !important; /* Ensure minimum width fills cell */
+    min-height: 100% !important; /* Ensure minimum height fills cell */
+    max-width: 100% !important; /* Limit maximum width to cell size */
+    max-height: 100% !important; /* Limit maximum height to cell size */
+  }
+  
+  /* Increase transparency of 3D shapes by targeting canvas elements */
+  .box canvas,
+  #society-box.box canvas,
+  #tech-box.box canvas,
+  #sports-box.box canvas,
+  #arts-box.box canvas,
+  div.box canvas,
+  body .boxes-container .box canvas {
+    opacity: 0.3 !important; /* Significantly increase transparency */
+  }
+  
+  /* Container for box content to maintain centering */
+  .box::before,
+  #society-box.box::before,
+  #tech-box.box::before,
+  #sports-box.box::before,
+  #arts-box.box::before,
+  div.box::before,
+  body .boxes-container .box::before {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Position box content properly */
+  .box > *,
+  #society-box.box > *,
+  #tech-box.box > *,
+  #sports-box.box > *,
+  #arts-box.box > *,
+  div.box > *,
+  body .boxes-container .box > * {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Enhanced box labels for better readability over 3D shapes */
+  .box-label,
+  .box .box-label {
+    font-size: 0.875rem !important; /* Increased by ~2 points from 0.75rem */
+    font-weight: 700 !important; /* Bolder text */
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5) !important; /* White glow */
+    background-color: rgba(255, 255, 255, 0.15) !important; /* Subtle background */
+    padding: 3px 6px !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Simple direct fix for box labels */
+  .box {
+    position: relative !important;
+  }
+  
+  .box canvas {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  .box .box-label {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  /* Super-specific override to center box labels vertically and horizontally */
+  #society-box .box-label[data-translate="society-title"],
+  #tech-box .box-label[data-translate="technology-title"],
+  #sports-box .box-label[data-translate="sports-title"],
+  #arts-box .box-label[data-translate="arts-title"],
+  .boxes .box .box-label {
+    position: absolute !important;
+    bottom: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 3px 6px !important;
+    width: auto !important;
+    height: auto !important;
+    text-align: center !important;
+    font-size: 1.05rem !important; /* Increased by ~3 points from 0.875rem */
+    display: inline-block !important;
+    z-index: 30 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 3.5rem !important;
+  }
+  
+  .boxes {
+    gap: 15px !important; /* Fixed pixel gap for consistent spacing on small screens */
+    padding: 0 !important;
+    width: 95% !important; /* Use more screen width on small devices */
+    max-width: 430px !important;
+    margin: 60px auto 30px auto !important;
+    grid-auto-rows: 1fr !important; /* Ensure all rows have equal height */
+    grid-auto-columns: 1fr !important; /* Ensure all columns have equal width */
+  }
+  
+  /* No need to specify box dimensions for small screens as they're percentage-based now */
+  /* The boxes will automatically fill their grid cells */
+  
+  /* No need to specify box dimensions as they're percentage-based now */
+  
+  /* Enhanced box labels for better readability on small screens */
+  .box-label,
+  .box .box-label {
+    font-size: 0.8rem !important;
+    letter-spacing: 0.04em !important;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.7), 0 0 8px rgba(255, 255, 255, 0.5) !important; /* Slightly smaller white glow */
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    padding: 2px 5px !important;
+    /* Maintain centering from parent rule - no need to redefine position properties */
+  }
+}

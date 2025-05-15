@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STESA - Projects</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Removed conflicting navbar styles - using global styles from styles.css instead */
+        
+        .nav-links a.active {
+            background-color: rgba(0, 102, 204, 0.2);
+            color: #0066cc;
+            font-weight: 600;
+        }
+        
+        /* Content styles */
+        
+        .content {
+            margin-top: 105px; /* Reduced by 30% from 150px */
+            margin-bottom: 40px;
+            margin-left: auto; /* Center content */
+            margin-right: auto; /* Center content */
+            padding: 0; /* Remove all padding */
+            width: 90%; /* Use percentage width */
+            max-width: 1600px; /* Set a maximum width */
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: visible; /* Allow content to be visible outside */
+        }
+        
+        /* Remove body horizontal scrolling */
+        body {
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Center the title and intro text */
+        .content h1,
+        .content > p {
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+        
+        /* Projects container with position relative for absolute positioning of arrows */
+        .projects-container {
+            position: relative;
+            margin: 40px 0;
+            padding: 0; /* Remove horizontal padding */
+            background-color: transparent; /* Make container transparent */
+            width: 100%; /* Full width of parent */
+            max-width: 1800px; /* Set a maximum width */
+        }
+        
+        /* Projects grid as horizontal scrollable row */
+        .projects-grid {
+            display: flex; /* Change from grid to flex */
+            flex-wrap: nowrap; /* Prevent wrapping */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            gap: 30px;
+            padding: 30px 0; /* Vertical padding only */
+            background-color: transparent; /* Make grid transparent */
+            box-shadow: none; /* Remove shadow */
+            /* Improve scrolling experience */
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            /* Add scroll snap */
+            scroll-snap-type: x mandatory;
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .projects-grid::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Fixed width for project cards in horizontal layout */
+        .project-card {
+            flex: 0 0 400px; /* Increased from 300px to 400px for wider cards */
+            height: 400px; /* Taller cards for better visibility */
+            background-color: white; /* Solid white background */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            /* Add scroll snap */
+            scroll-snap-align: start;
+        }
+        
+        .project-image {
+            height: 180px; /* Fixed height for images */
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            padding: 15px;
+            flex: 1; /* Take remaining space */
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .project-category {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .category-society {
+            background-color: rgba(0, 102, 204, 0.2);
+            color: #0066cc;
+        }
+        
+        .category-technology {
+            background-color: rgba(204, 0, 204, 0.2);
+            color: #cc00cc;
+        }
+        
+        .category-sports {
+            background-color: rgba(0, 153, 0, 0.2);
+            color: #009900;
+        }
+        
+        .category-arts {
+            background-color: rgba(204, 153, 0, 0.2);
+            color: #cc9900;
+        }
+        
+        .project-description {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #555;
+        }
+        
+        .hero-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        
+        .hero-title-container h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-title-container h1 span {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .s1 {
+            color: #0066cc; /* Society color */
+        }
+        
+        .t {
+            color: #cc00cc; /* Technology color */
+        }
+        
+        .e {
+            color: #333; /* Dark gray/black */
+        }
+        
+        .s2 {
+            color: #009900; /* Sports color - green */
+        }
+        
+        .a {
+            color: #cc9900; /* Arts color - gold */
+        }
+        
+        .decorator {
+            width: 50px;
+            height: 5px;
+            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900, #cc9900);
+            margin: 0 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: #333;
+            margin-left: 10px;
+        }
+        
+        /* Scroll arrow buttons */
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            border: none;
+            font-size: 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-arrow:hover {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scroll-left {
+            left: 0;
+        }
+        
+        .scroll-right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Mobile menu toggle button (only visible on mobile) -->
+        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- Empty div for layout consistency (helps with centering) -->
+        <div class="nav-home-link">
+            <!-- Removed STESA text -->
+        </div>
+        <!-- Regular nav links (hidden on mobile) -->
+        <div class="nav-links">
+            <a href="index.html" data-translate="home">Acasa</a>
+            <a href="about.html" data-translate="about">Despre</a>
+            <a href="projects.html" class="active" data-translate="projects">Proiecte</a>
+            <a href="team.html" data-translate="team">Echipă</a>
+            <a href="contact.html" data-translate="contact">Contact</a>
+        </div>
+        <div class="language-switcher">
+            <button id="lang-en" class="active">EN</button>
+            <button id="lang-ro">RO</button>
+        </div>
+    </nav>
+    
+    <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
+    
+    <div class="content">
+        <h1 data-translate="projects-title">Projects</h1>
+        
+        <p data-translate="projects-intro">Explore our innovative projects at the intersection of technology, society, sports, and arts. Each project demonstrates our commitment to pushing boundaries and creating meaningful impact.</p>
+        
+        <div class="projects-container">
+            <button class="scroll-arrow scroll-left" aria-label="Scroll left">&lt;</button>
+            <div class="projects-grid">
+                <!-- Society Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/0066cc/ffffff?text=Digital+Inclusion" alt="Digital Inclusion Initiative">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project1-title">Digital Inclusion Initiative</div>
+                        <div class="project-category category-society" data-translate="category-society">Society</div>
+                        <div class="project-description" data-translate="project1-description">A program designed to bridge the digital divide by providing technology access and education to underserved communities.</div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/0066cc/ffffff?text=Ethics+Framework" alt="Tech Ethics Framework">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project2-title">Tech Ethics Framework</div>
+                        <div class="project-category category-society" data-translate="category-society">Society</div>
+                        <div class="project-description" data-translate="project2-description">Developing comprehensive guidelines for ethical technology development and implementation across various sectors.</div>
+                    </div>
+                </div>
+                
+                <!-- Technology Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/cc00cc/ffffff?text=AI+Learning" alt="Adaptive AI Learning System">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project3-title">Adaptive AI Learning System</div>
+                        <div class="project-category category-technology" data-translate="category-technology">Technology</div>
+                        <div class="project-description" data-translate="project3-description">An AI-powered educational platform that adapts to individual learning styles and needs for personalized education.</div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/cc00cc/ffffff?text=XR+Heritage" alt="XR Cultural Heritage">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project4-title">XR Cultural Heritage</div>
+                        <div class="project-category category-technology" data-translate="category-technology">Technology</div>
+                        <div class="project-description" data-translate="project4-description">Using extended reality technologies to preserve and present cultural heritage in immersive and interactive ways.</div>
+                    </div>
+                </div>
+                
+                <!-- Sports Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/009900/ffffff?text=Motion+Analysis" alt="Advanced Motion Analysis">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project5-title">Advanced Motion Analysis</div>
+                        <div class="project-category category-sports" data-translate="category-sports">Sports</div>
+                        <div class="project-description" data-translate="project5-description">Cutting-edge motion capture system for athletic performance analysis and injury prevention.</div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/009900/ffffff?text=Fan+Experience" alt="Immersive Fan Experience">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project6-title">Immersive Fan Experience</div>
+                        <div class="project-category category-sports" data-translate="category-sports">Sports</div>
+                        <div class="project-description" data-translate="project6-description">Creating next-generation viewing experiences that bring fans closer to the action through immersive technologies.</div>
+                    </div>
+                </div>
+                
+                <!-- Arts Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/cc9900/ffffff?text=Digital+Canvas" alt="Digital Canvas">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project7-title">Digital Canvas</div>
+                        <div class="project-category category-arts" data-translate="category-arts">Arts</div>
+                        <div class="project-description" data-translate="project7-description">New digital tools for artists that expand creative possibilities while maintaining intuitive interfaces.</div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300/cc9900/ffffff?text=AI+Collaboration" alt="AI-Artist Collaboration">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title" data-translate="project8-title">AI-Artist Collaboration</div>
+                        <div class="project-category category-arts" data-translate="category-arts">Arts</div>
+                        <div class="project-description" data-translate="project8-description">Exploring how AI can collaborate with human creators to produce novel artistic works and experiences.</div>
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-arrow scroll-right" aria-label="Scroll right">&gt;</button>
+        </div>
+    </div>
+
+    <!-- Scroll arrows functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectsGrid = document.querySelector('.projects-grid');
+            const leftArrow = document.querySelector('.scroll-left');
+            const rightArrow = document.querySelector('.scroll-right');
+            const cardWidth = 430; // Card width (400px) + gap (30px)
+            const spacerWidth = 0; // Width of the spacer
+            
+            // Function to scroll to the nearest card start
+            function scrollToNearestCard() {
+                // This will be handled by CSS scroll-snap-type
+                // Just ensuring smooth scrolling behavior
+                projectsGrid.style.scrollBehavior = 'smooth';
+            }
+            
+            // Scroll left when left arrow is clicked
+            leftArrow.addEventListener('click', function() {
+                // Calculate the previous card position
+                const currentScroll = projectsGrid.scrollLeft;
+                const targetScroll = Math.floor((currentScroll - spacerWidth) / cardWidth) * cardWidth + spacerWidth - cardWidth;
+                
+                projectsGrid.scrollTo({
+                    left: Math.max(0, targetScroll), // Prevent scrolling past the beginning
+                    behavior: 'smooth'
+                });
+                
+                // Ensure snap alignment after scroll
+                setTimeout(scrollToNearestCard, 500);
+            });
+            
+            // Scroll right when right arrow is clicked
+            rightArrow.addEventListener('click', function() {
+                // Calculate the next card position
+                const currentScroll = projectsGrid.scrollLeft;
+                const targetScroll = Math.ceil((currentScroll - spacerWidth) / cardWidth) * cardWidth + spacerWidth + cardWidth;
+                
+                projectsGrid.scrollTo({
+                    left: targetScroll,
+                    behavior: 'smooth'
+                });
+                
+                // Ensure snap alignment after scroll
+                setTimeout(scrollToNearestCard, 500);
+            });
+            
+            // Hide scrollbar but maintain functionality
+            projectsGrid.style.scrollbarWidth = 'none';
+            projectsGrid.style.msOverflowStyle = 'none';
+        });
+    </script>
+    
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="js/particles-background.js"></script>
+    <script src="js/animation-manager.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>

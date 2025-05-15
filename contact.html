@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact STESA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Main content container */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Content box */
+        .content-box {
+            width: 800px;
+            max-width: 90%;
+            padding: 45px 50px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+        
+        /* Gradient bar at top */
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900);
+        }
+        
+        /* Heading styles */
+        .content-box h1 {
+            font-family: 'Exo 2', sans-serif;
+            color: #111;
+            margin-bottom: 35px;
+            font-size: 2.8rem;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        /* Heading underline */
+        .content-box h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: rgba(0, 102, 204, 0.7);
+        }
+        
+        /* Contact info styles */
+        .contact-info {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #444;
+            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Contact details section */
+        .contact-details {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        /* Individual contact detail box */
+        .contact-detail {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-detail:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-detail h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .contact-detail p {
+            color: #555;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-box {
+                width: 90%;
+                padding: 35px 30px;
+            }
+            
+            .content-box h1 {
+                font-size: 2.4rem;
+            }
+            
+            .contact-info {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-box {
+                width: 95%;
+                padding: 25px 20px;
+            }
+            
+            .content-box h1 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+        }
+        
+        .contact-detail {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-detail:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-detail h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .contact-detail p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed background -->
+    <div id="canvas-container" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-color: #030b35;"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Mobile menu toggle button (only visible on mobile) -->
+        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- Empty div for layout consistency (helps with centering) -->
+        <div class="nav-home-link">
+            <!-- Removed STESA text -->
+        </div>
+        <!-- Regular nav links (hidden on mobile) -->
+        <div class="nav-links">
+            <a href="index.html" data-translate="home">Acasa</a>
+            <a href="about.html" data-translate="about">Despre</a>
+            <a href="projects.html" data-translate="projects">Proiecte</a>
+            <a href="team.html" data-translate="team">Echipă</a>
+            <a href="contact.html" class="active" data-translate="contact">Contact</a>
+        </div>
+        <div class="language-switcher">
+            <button id="lang-en" class="active">EN</button>
+            <button id="lang-ro">RO</button>
+        </div>
+    </nav>
+    
+    <!-- Main content container -->
+    <div class="main-container">
+        <!-- Content box -->
+        <div class="content-box">
+            <h1 data-translate="contact-title">Contact Us</h1>
+            
+            <p class="contact-info" data-translate="contact-info">We'd love to hear from you! Whether you have a question about our work, want to collaborate, or just want to say hello, feel free to reach out to us.</p>
+            
+            <div class="contact-details">
+                <div class="contact-detail">
+                    <h3 data-translate="contact-email-title">Email</h3>
+                    <p>contact@stesa.ro</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="js/particles-background.js"></script>
+    <script src="js/animation-manager.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/mobile-menu.js"></script>
+</body>
+</html>
