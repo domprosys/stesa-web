@@ -1,3 +1,7 @@
+@import url("hero.css");
+@import url("boxes.css");
+@import url("navbar.css");
+
 /* Global styles */
 body {
     margin: 0;
@@ -5,11 +9,9 @@ body {
     font-family: 'Exo 2', sans-serif;
     background: #f5f5f7;
     color: #333;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow-x: hidden;
+    height: auto;
+    display: block;
 }
 
 #canvas-container {
@@ -18,271 +20,50 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-}
-
-/* Hero section */
-.hero {
-    text-align: center;
-    z-index: 10;
-    position: relative;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 6rem;
-    font-weight: 300; /* Lighter weight for a more modern look */
-    color: #ffffff;
-    margin: 0;
-    letter-spacing: 0.3em; /* Increased spacing for elegance */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15); /* Subtle glow */
-    text-transform: uppercase;
+    z-index: -1;
+    background-color: #030b35;
 }
 
 /* Responsive styles for different screen sizes */
+
 @media (max-width: 1200px) {
-    .hero h1 {
-        font-size: 5rem;
-        letter-spacing: 0.25em;
+    .boxes {
+        gap: 20px;
+    }
+    
+    .box {
+        width: 130px;
+        height: 130px;
     }
 }
 
 @media (max-width: 768px) {
-    body {
-        overflow-y: auto; /* Allow scrolling on mobile */
-        height: auto;
-    }
-    
-    .hero-title-container {
-        display: block !important;
-        position: relative;
-        z-index: 30;
-    }
-    
-    .hero {
-        padding-top: 100px; /* Space at the top */
-        height: auto; /* Auto height for content */
-        min-height: 60vh; /* Minimum height */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Align from top */
-    }
-    
-    .hero-default {
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 40px;
-        z-index: 20;
-        position: relative;
-    }
-    
-    .hero h1 {
-        font-size: 4.5rem; /* Larger text */
-        letter-spacing: 0.2em;
-        margin-bottom: 15px; /* Add space below title */
-        display: block !important;
-        color: #ffffff !important;
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-        position: relative;
-        z-index: 25;
-    }
-    
-    .hero h1 span {
-        display: inline-block;
-        color: #ffffff !important;
-    }
-    
-    .gradient-separator {
-        display: block !important;
-        width: 80%;
-        margin: 15px auto;
-        height: 4px;
-        position: relative;
-        z-index: 25;
-        background: linear-gradient(90deg, #0066cc, #cc00cc, #009900, #cc9900) !important;
-        background-size: 300% 100% !important;
-        animation: gradient-flow 8s ease infinite !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding-top: 90px;
-        min-height: 50vh;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem; /* Larger text on small mobile */
-        letter-spacing: 0.15em;
-        margin-bottom: 10px;
-    }
-    
-    .gradient-separator {
-        margin: 10px auto;
-    }
-    
     .boxes {
-        grid-gap: 15px;
-        padding: 15px;
-    }
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin: 0;
-    letter-spacing: 2px;
-    color: #333; /* Dark text for readability */
-}
-
-/* Boxes */
-.boxes {
-    position: fixed;
-    left: 30px;
-    bottom: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-wrap: nowrap;
-    gap: 30px;
-    margin-top: 0;
-    z-index: 50;
-}
-
-/* Responsive styles for boxes */
-@media (max-width: 768px) {
-    .boxes {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Create a 2x2 grid */
-        grid-gap: 20px;
-        padding: 30px 20px;
-        margin-top: 60px;
-        justify-items: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .boxes {
+        left: 10px;
+        bottom: 10px;
         gap: 15px;
-        padding: 20px 10px;
+    }
+    
+    .box {
+        width: 120px;
+        height: 120px;
     }
 }
 
-/* Box styling with high specificity to override JS */
-.box,
-#society-box.box,
-#tech-box.box,
-#sports-box.box,
-#arts-box.box,
-div.box,
-body .boxes-container .box {
-    width: 180px;
-    height: 180px;
-    background-color: #ffffff !important;
-    border-radius: 16px; /* More modern rounded corners */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 20px; /* Increased spacing between boxes */
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 15;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) !important; /* Subtle depth */
-    border: none !important;
-}
-
-/* Responsive styles for individual boxes */
-@media (max-width: 768px) {
-    .box,
-    #society-box.box,
-    #tech-box.box,
-    #sports-box.box,
-    #arts-box.box,
-    div.box,
-    body .boxes-container .box {
-        width: 100%;
-        max-width: 160px;
-        height: 160px;
-        margin: 0;
+@media (max-width: 576px) {
+    .boxes {
+        flex-direction: column;
+        align-items: flex-start;
+        left: 5px;
+        bottom: 5px;
+        gap: 10px;
+        margin-top: 0;
     }
-}
-
-@media (max-width: 480px) {
-    .box,
-    #society-box.box,
-    #tech-box.box,
-    #sports-box.box,
-    #arts-box.box,
-    div.box,
-    body .boxes-container .box {
-        width: 100%;
-        max-width: 140px;
-        height: 140px;
+    
+    .box {
+        width: 150px;
+        height: 100px;
     }
-}
-
-/* Add a subtle hover effect */
-.box:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
-}
-
-/* Improve box label styling */
-.box-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-/* Colored borders for each box */
-#society-box {
-    border-color: rgba(0, 102, 204, 0.4); /* #0066cc with opacity */
-}
-
-#tech-box {
-    border-color: rgba(204, 0, 204, 0.4); /* #cc00cc with opacity */
-}
-
-#sports-box {
-    border-color: rgba(0, 153, 0, 0.4); /* #009900 with opacity */
-}
-
-#arts-box {
-    border-color: rgba(204, 153, 0, 0.4); /* #cc9900 with opacity */
-}
-
-.box.active {
-    transform: translateY(-5px) scale(1.05);
-    z-index: 20;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.box-label {
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    pointer-events: none;
 }
 
 /* Feature content styles */
@@ -343,6 +124,7 @@ body .boxes-container .box {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 95%;
     max-width: 800px;
     text-align: center;
     z-index: 5;
@@ -374,316 +156,208 @@ body .boxes-container .box {
     transform: translateY(-2px);
 }
 
-/* Responsive design */
-@media (max-width: 1200px) {
-    .boxes {
-        gap: 20px;
-    }
-    
-    .box {
-        width: 130px;
-        height: 130px;
-    }
+/* Page base resets and hero section */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Exo 2', sans-serif;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 4rem;
-    }
-    
-    .hero p {
-        font-size: 1.2rem;
-    }
-    
-    .boxes {
-        left: 10px;
-        bottom: 10px;
-        gap: 15px;
-    }
-    
-    .box {
-        width: 120px;
-        height: 120px;
-    }
+/* Team page styles */
+.content {
+  width: 95%;
+  max-width: 900px;
+  margin: 120px auto 40px;
+  padding: 30px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.content h1 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+.content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: rgba(0, 102, 204, 0.7);
 }
 
-@media (max-width: 576px) {
-    .hero h1 {
-        font-size: 3rem;
-        letter-spacing: 5px;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-    }
-    
-    .boxes {
-        flex-direction: column;
-        align-items: flex-start;
-        left: 5px;
-        bottom: 5px;
-        gap: 10px;
-        margin-top: 0;
-    }
-    
-    .box {
-        width: 150px;
-        height: 100px;
-    }
+.team-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #eee;
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 80%;
 }
 
-/* Subtitle styling - consolidated */
-.subtitle-container {
-    margin-top: 20px;
-    margin-bottom: 30px;
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.team-member {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.team-member-photo {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+.team-member-info {
+  padding: 15px;
+}
+.team-member-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+.team-member-role {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+.team-member-bio {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #444;
+}
+/* Photo background colors via modifier classes */
+.team-member-photo.society {
+  background-color: #0066cc;
+}
+.team-member-photo.technology {
+  background-color: #cc00cc;
+}
+.team-member-photo.sports {
+  background-color: #009900;
+}
+.team-member-photo.arts {
+  background-color: #cc9900;
 }
 
-#random-subtitle, 
-.typewriter-text {
-    font-family: 'Fira Mono', 'JetBrains Mono', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
-    font-variant-ligatures: none;
-    font-weight: 400;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85) !important; /* Slightly transparent for sophistication */
-    background: transparent !important;
-    border-radius: 0;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 6px 18px;
-    display: inline-block;
-    box-shadow: none;
-    max-width: 90%; /* Much larger width to prevent any truncation */
-    white-space: normal !important; /* Allow text to wrap */
-    text-align: center;
+/* Projects page styles */
+.projects-container {
+  position: relative;
+  margin: 40px auto;
+  width: 95%;
+  max-width: 1600px;
+}
+.projects-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 30px;
+}
+.project-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.project-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+.project-info {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.project-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.project-category {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+.category-society { background-color: rgba(0, 102, 204, 0.2); color: #0066cc; }
+.category-technology { background-color: rgba(204, 0, 204, 0.2); color: #cc00cc; }
+.category-sports { background-color: rgba(0, 153, 0, 0.2); color: #009900; }
+.category-arts { background-color: rgba(204, 153, 0, 0.2); color: #cc9900; }
+.project-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #555;
+  flex: 1;
 }
 
-@media (max-width: 768px) {
-    #random-subtitle, 
-    .typewriter-text {
-        font-size: 1.2rem;
-        padding: 8px 15px;
-        letter-spacing: 0.03em;
-        line-height: 1.5;
-        margin-top: 10px;
-    }
-    
-    .subtitle-container {
-        margin-top: 30px;
-    }
+.projects-grid .project-card:nth-child(n+5) {
+  display: none;
 }
 
-@media (max-width: 480px) {
-    #random-subtitle, 
-    .typewriter-text {
-        font-size: 1.1rem;
-        padding: 6px 12px;
-        letter-spacing: 0.02em;
-        line-height: 1.4;
-    }
+.projects-container .scroll-arrow {
+  display: none !important;
 }
 
-/* Typewriter effect specific styles */
-.typewriter-text {
-    white-space: nowrap !important; /* Override for typewriter effect */
-    overflow: hidden;
-    border-right: 0.15em solid rgba(255, 255, 255, 0.85); /* Blinking cursor - match text color */
-    animation: typing 3.5s steps(100, end), blink-caret 0.75s step-end infinite;
-    margin: 0 auto;
-    max-width: 100%;
-    width: auto;
-    text-align: left; /* Align text left for typewriter effect */
-    padding-right: 0.2em; /* Add a small space after the text before the cursor */
+/* Transparent project cards with no text or hover effects */
+.projects-grid .project-card {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+.projects-grid .project-card:hover {
+  transform: none !important;
+}
+.projects-grid .project-card .project-image img {
+  transition: none !important;
+}
+.projects-grid .project-card .project-title,
+.projects-grid .project-card .project-category,
+.projects-grid .project-card .project-description {
+  text-shadow: none !important;
+  font-weight: normal !important;
+  color: #333 !important;
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: calc(100% + 0.2em) } /* Add a small amount to account for the padding */
+/* Typewriter cursor blink after typing completes */
+.typewriter-cursor.blink {
+  animation: blink-cursor 1s step-end infinite;
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #ffffff }
-}
-
-/* Animated gradient separator */
-.gradient-separator {
-    width: 300px; /* Wider separator */
-    height: 4px;
-    margin: 15px auto 25px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #0066cc, #cc00cc, #009900, #cc9900);
-    background-size: 300% 100%;
-    animation: gradient-flow 8s ease infinite;
-    display: block;
-}
-
-@keyframes gradient-flow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Navbar styles (moved from index.html) */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Use 100vw to span full width */
-    display: flex;
-    justify-content: space-between; /* Push items to edges and center */
-    align-items: center; /* Vertically align items */
-    padding: 20px 40px; /* Increased padding for more breathing room */
-    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent for a modern look */
-    backdrop-filter: blur(10px); /* Modern frosted glass effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-sizing: border-box; /* Include padding in width calculation */
-}
-
-/* Responsive navbar for tablets and mobile */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        padding: 10px 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-.navbar:hover {
-    background-color: rgba(255, 255, 255, 0.98);
-}
-
-.nav-home-link {
-    flex: 1; /* Take up space to push center links */
-    padding-left: 30px; /* Add left padding for spacing */
-}
-
-.nav-links {
-    display: flex;
-    gap: 40px;
-    justify-content: center; /* Center the links within their container */
-    flex: 2; /* Allow center links to take up space */
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        gap: 20px;
-    }
-    
-    .nav-home-link {
-        padding-left: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-links {
-        gap: 10px;
-        flex: 1 1 100%;
-        order: 3;
-        margin-top: 10px;
-    }
-    
-    .nav-home-link {
-        flex: 1 1 auto;
-        order: 1;
-        text-align: left;
-    }
-    
-    .language-switcher {
-        flex: 1 1 auto;
-        order: 2;
-        text-align: right;
-    }
-}
-
-.language-switcher {
-    display: flex;
-    gap: 5px;
-    flex: 1; /* Take up space to push center links */
-    justify-content: flex-end;
-    padding-right: 30px; /* Add right padding for spacing */
-}
-
-.nav-home-link a,
-.nav-links a {
-    color: #333333;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    padding: 8px 16px;
-    margin: 0 5px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    position: relative;
-    text-transform: uppercase;
-}
-
-/* Apply consistent hover styles to home link */
-.nav-home-link a:hover,
-.nav-links a:hover {
-    color: #0066cc;
-    background-color: rgba(0, 102, 204, 0.05);
-}
-
-/* Add underline animation for nav links */
-.nav-home-link a::after,
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #0066cc;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.nav-home-link a:hover::after,
-.nav-links a:hover::after {
-    width: 70%;
-}
-
-/* Style for active link (applies to home link too if needed, though less common) */
-.nav-home-link a.active, 
-.nav-links a.active {
-    background-color: rgba(0, 102, 204, 0.2);
-    color: #0066cc;
-    font-weight: 600;
-}
-
-/* Language switcher (moved from index.html) */
-.language-switcher button {
-    background: none;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 3px 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-family: 'Montserrat', sans-serif;
-    transition: all 0.3s ease;
-}
-
-.language-switcher button:hover,
-.language-switcher button.active {
-    background-color: #0066cc;
-    color: white;
-    border-color: #0066cc;
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }

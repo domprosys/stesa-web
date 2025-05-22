@@ -10,119 +10,124 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Navbar styles */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: background-color 0.3s ease;
+        /* Reset any potential conflicting styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
         }
         
-        .navbar:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-        
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            text-shadow: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-        
-        .nav-links a:hover {
-            color: #0066cc;
-            text-shadow: none;
-            background-color: rgba(0, 102, 204, 0.1);
-        }
-        
-        .nav-links a.active {
-            background-color: rgba(0, 102, 204, 0.2);
-            color: #0066cc;
-            font-weight: 600;
-        }
-        
-        /* Content styles */
+        /* Content styling */
         .content {
-            max-width: 900px;
-            margin: 120px auto 40px;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            max-width: 90%;
+            margin: 300px auto 60px;
+            box-sizing: border-box;
+            /* position: relative; */
+            /* left: 0 !important; */
+            /* right: 0 !important; */
+            /* transform: none !important; */
         }
         
         .content h1 {
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #fff;
             text-align: center;
+            margin-bottom: 30px;
+            position: relative;
         }
         
-        /* Team grid */
+        /* Team description container */
+        .team-description {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            padding: 45px 50px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        /* Gradient bar at top */
+        .team-description::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900);
+        }
+        
+        .team-description p {
+            font-family: 'Montserrat', sans-serif;
+            color: #eee;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+        
+        .team-description p:last-child {
+            margin-bottom: 0;
+        }
+        
         .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .team-member {
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            margin: 20px;
+            width: calc(33.33% - 20px);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
         }
         
         .team-member-photo {
-            height: 200px;
-            background-color: #eee;
-            background-size: cover;
-            background-position: center;
+            width: 100%;
+            height: 150px;
+            background-color: #ccc;
+            border-radius: 12px 12px 0 0;
         }
         
         .team-member-info {
-            padding: 15px;
+            padding: 20px;
         }
         
         .team-member-name {
-            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .team-member-role {
-            font-size: 0.9rem;
-            color: #666;
+            color: #fff;
             margin-bottom: 10px;
         }
         
-        .team-member-bio {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #444;
+        .team-member-role {
+            font-family: 'Montserrat', sans-serif;
+            color: #eee;
+            margin-bottom: 10px;
+        }
+        
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 50px;
         }
     </style>
 </head>
@@ -157,33 +162,37 @@
     <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
     
     <div class="content">
-        <h1>Our Team</h1>
-        
+        <h1 data-translate="team">Our Team</h1>
+        <div class="team-description">
+            <p data-translate="team-description-1">We are a collective of forward-thinking individuals who believe the future is built at the edges.</p>
+            <p data-translate="team-description-2">From technologists to artists, researchers to athletes — we're united by curiosity and a shared conviction that the most interesting work happens where disciplines collide. Our team grows organically as we connect with like-minded pioneers who see possibility where others see boundaries.</p>
+            <p data-translate="team-description-3">If you're drawn to the spaces between fields, you might just be one of us.</p>
+        </div>
         <div class="team-grid">
             <div class="team-member">
-                <div class="team-member-photo" style="background-color: #0066cc;"></div>
+                <div class="team-member-photo"></div>
                 <div class="team-member-info">
-                    <div class="team-member-name">Dr. Elena Popescu</div>
-                    <div class="team-member-role">Society Division Lead</div>
-                    <div class="team-member-bio">With a PhD in Sociology, Elena brings expertise in how emerging technologies impact social structures and human behavior.</div>
+                    <div class="team-member-name">Dr. Alex Cioaca</div>
+                    <div class="team-member-role" data-translate="president">President</div>
                 </div>
             </div>
-            
             <div class="team-member">
-                <div class="team-member-photo" style="background-color: #cc00cc;"></div>
+                <div class="team-member-photo"></div>
                 <div class="team-member-info">
-                    <div class="team-member-name">Andrei Ionescu</div>
-                    <div class="team-member-role">Technology Division Lead</div>
-                    <div class="team-member-bio">A computer scientist specializing in AI and machine learning, Andrei drives our technological innovation initiatives.</div>
+                    <div class="team-member-name">Mihai Cojocaru</div>
+                    <div class="team-member-role" data-translate="vicepresident">Vicepresident</div>
                 </div>
             </div>
-            
             <div class="team-member">
-                <div class="team-member-photo" style="background-color: #009900;"></div>
+                <div class="team-member-photo"></div>
                 <div class="team-member-info">
-                    <div class="team-member-name">Maria Dumitrescu</div>
-                    <div class="team-member-role">Sports Division Lead</div>
-                    <div class="team-member-bio">Former Olympic athlete and sports scientist, Maria explores how technology can enhance athletic performance and experience.</div>
+                    <div class="team-member-name">Adrian Ghidu</div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-member-photo"></div>
+                <div class="team-member-info">
+                    <div class="team-member-name">Norbert Fodor</div>
                 </div>
             </div>
         </div>

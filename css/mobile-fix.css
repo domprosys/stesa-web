@@ -23,12 +23,16 @@
 
   /* Subtitle styling */
   .subtitle-container,
-  #random-subtitle {
+  #random-subtitle,
+  .typewriter-text {
     font-size: 0.9rem !important;
     max-width: 90% !important;
     margin: 0 auto 5px auto !important; /* Significantly reduce bottom margin */
     padding: 5px !important; /* Reduce padding */
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8) !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow: visible !important;
   }
 
   /* Adjust hero section positioning */
@@ -40,13 +44,6 @@
     flex-direction: column !important;
     min-height: auto !important; /* Override min-height to prevent extra space */
     height: auto !important;
-  }
-
-  /* Set specific margins for hero title container */
-  .hero-title-container {
-    margin: 160px 0 0 0 !important; /* 160px top margin, 0 for other sides */
-    padding: 0 !important;
-    background-color: transparent !important; /* Remove any background color */
   }
 
   /* Remove margins from hero-default */
@@ -302,7 +299,7 @@
     position: relative !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     border-radius: 16px !important;
-    background-color: rgba(255, 255, 255, 0.15) !important; /* Semi-transparent background */
+    background-color: #ffffff !important; /* Opaque white background on mobile */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -406,6 +403,17 @@
     outline: none !important;
   }
 
+  /* Override box label positioning to bottom */
+  .box .box-label,
+  #society-box .box-label,
+  #tech-box .box-label,
+  #sports-box .box-label,
+  #arts-box .box-label {
+    top: auto !important;
+    bottom: 0 !important;
+    transform: none !important;
+  }
+
   /* Super-specific override to center box labels vertically and horizontally */
   #society-box .box-label[data-translate="society-title"],
   #tech-box .box-label[data-translate="technology-title"],
@@ -430,6 +438,10 @@
 }
 
 @media (max-width: 480px) {
+  /* Reserve space for up to 5 lines of subtitle to prevent content shift */
+  .subtitle-container {
+    min-height: 8rem !important;
+  }
   .hero h1 {
     font-size: 3.5rem !important;
   }
@@ -439,7 +451,7 @@
     padding: 0 !important;
     width: 95% !important; /* Use more screen width on small devices */
     max-width: 430px !important;
-    margin: 60px auto 30px auto !important;
+    margin: 2.5% auto 30px auto !important;
     grid-auto-rows: 1fr !important; /* Ensure all rows have equal height */
     grid-auto-columns: 1fr !important; /* Ensure all columns have equal width */
   }
@@ -458,5 +470,41 @@
     background-color: rgba(255, 255, 255, 0.15) !important;
     padding: 2px 5px !important;
     /* Maintain centering from parent rule - no need to redefine position properties */
+  }
+  
+  #random-subtitle,
+  .typewriter-text {
+    text-align: center !important;
+    display: block !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    font-size: 1.2rem !important; /* Slightly larger subtitle on mobile */
+  }
+  
+  /* Single-column layout for team members */
+  .team-grid {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    gap: 20px !important;
+  }
+  .team-member {
+    width: 90% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Add space above team cards and shrink their width */
+  .team-grid {
+    margin-top: 20px !important;
+  }
+  .team-member {
+    width: 80% !important;
+    max-width: 280px !important;
+  }
+
+  /* Move content down on mobile so title is visible below navbar */
+  .content {
+    margin-top: 350px !important;
   }
 }

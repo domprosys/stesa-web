@@ -16,11 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    // Deep blue background color (similar to the reference image)
-    const backgroundColor = '#030b35';
-    
     // Particle settings
-    const particleCount = 100;
+    const particleCount = 200;
     const particles = [];
     const connectionDistance = 150; // Maximum distance to draw connections between particles
     const minSize = 2;
@@ -37,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     
     // Line settings
-    const lineWidth = 0.5;
+    const lineWidth = 1;
     const lineOpacityDivisor = 3; // Higher = more transparent lines
     
     // Mouse interaction
@@ -177,8 +174,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation loop
     function animate() {
-        // Clear canvas with semi-transparent background for trail effect
-        ctx.fillStyle = backgroundColor;
+        // Draw radial gradient background
+        const cx = canvas.width / 2, cy = canvas.height / 2;
+        const rad = Math.hypot(cx, cy);
+        const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+        grad.addColorStop(0, '#030b35');
+        grad.addColorStop(1, '#000010');
+        ctx.fillStyle = grad;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // Update and draw particles

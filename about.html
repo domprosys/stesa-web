@@ -24,7 +24,9 @@
             width: 800px;
             max-width: 90%;
             margin: 120px auto 60px;
-            background-color: #ffffff;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
             padding: 45px 50px;
@@ -46,8 +48,8 @@
         }
         
         .about-container h1 {
-            font-family: 'Exo 2', sans-serif;
-            color: #111;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
             margin-bottom: 35px;
             font-size: 2.8rem;
             text-align: center;
@@ -71,7 +73,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.8;
             margin-bottom: 24px;
-            color: #333;
+            color: #eee;
             font-size: 1.1rem;
             font-weight: 400;
             letter-spacing: 0.01em;
@@ -80,6 +82,16 @@
         
         .about-container p:last-child {
             margin-bottom: 0;
+        }
+        
+        .about-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-size: 1.6rem;
+            letter-spacing: 0.02em;
+            text-align: left;
         }
         
         @media (max-width: 768px) {
@@ -139,14 +151,22 @@
         </div>
     </nav>
     
-    <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
+    <div id="canvas-container"></div>
     
     <div class="about-container">
         <h1 data-translate="about-title">About STESA</h1>
-        <p data-translate="about-intro">At STESA, we believe that expression takes many forms — a gesture, a movement, a brushstroke, a codebase. In a time when technology mediates nearly every facet of human experience, we explore how arts and sports — long seen as separate worlds — are converging through new tools, spaces, and logics.</p>
-        <p data-translate="about-mission">We see the artist and the athlete not as opposites, but as kin: bodies in motion, engaging systems, seeking form, rhythm, and meaning. Whether it's through movement, visual expression, or digital immersion, they both craft experiences that resonate, provoke, and connect.</p>
-        <p data-translate="about-history">Technology is no longer just a tool — it is a stage, a collaborator, a new kind of canvas or arena. From AI-generated choreography to gamified physical spaces, from interactive installations to digitally enhanced performance, the boundaries are blurring.</p>
-        <p data-translate="about-vision">STESA exists to cultivate this shared terrain of human expression, supporting projects that are not defined by discipline, but by curiosity, embodiment, and innovation.</p>
+        <p data-translate="about-intro">We are STESA — the Society for Emerging Technologies, Sports, and Arts — and we believe that the future of human expression lives at the intersection of movement, creativity, and technology.</p>
+        <h2 data-translate="about-vision-title">Our Vision</h2>
+        <p data-translate="about-vision-p1">In an era where artificial intelligence can generate art, where sensors can track every heartbeat, and where digital spaces become venues for performance, we ask: How do emerging technologies reshape the way we move, create, and connect?</p>
+        <p data-translate="about-vision-p2">We don't see technology as replacing human creativity — we see it as amplifying it. The athlete perfecting their form through motion analysis. The artist collaborating with AI to push creative boundaries. The community gathering around new forms of digital play. These are the stories we're here to tell and the futures we're here to build.</p>
+        <h2 data-translate="about-what-we-do-title">What We Do</h2>
+        <p data-translate="about-what-we-do-p1">We curate experiences that reveal technology's potential to enrich daily life. From new media art exhibitions and interactive installations to our emerging sports initiatives that bring disc golf and functional fitness to new communities.</p>
+        <p data-translate="about-what-we-do-p2">We build bridges between disciplines that have traditionally operated in isolation. Our projects live where code meets canvas, where data meets movement, where innovation meets tradition.</p>
+        <p data-translate="about-what-we-do-p3">We democratize access to cutting-edge tools and knowledge. Whether through workshops on digital art creation, research into wellness protocols backed by telemetric data, or educational programs that help young people navigate an AI-augmented world, we believe everyone should have a seat at the table of technological progress.</p>
+        <h2 data-translate="about-approach-title">Our Approach</h2>
+        <p data-translate="about-approach-p1">We're not interested in technology for its own sake. We're interested in technology that makes us more human — more creative, more connected, more capable of meaningful expression. Every project we undertake asks the same fundamental question: How can this make life richer, more playful, more authentic?</p>
+        <p data-translate="about-approach-p2">From our base in Bucharest, we're building a community of artists, athletes, technologists, and curious minds who share this vision. We're creating spaces — both physical and digital — where experimentation thrives and where the next generation of creative expression can emerge.</p>
+        <p data-translate="about-approach-p3">STESA exists because the future of human expression won't be created in isolation. It will be created together, at the edges where disciplines meet and possibilities multiply.</p>
     </div>
 
     <!-- Load scripts -->

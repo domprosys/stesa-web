@@ -36,7 +36,9 @@
             width: 800px;
             max-width: 90%;
             padding: 45px 50px;
-            background-color: #ffffff;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
             position: relative;
@@ -58,8 +60,8 @@
         
         /* Heading styles */
         .content-box h1 {
-            font-family: 'Exo 2', sans-serif;
-            color: #111;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
             margin-bottom: 35px;
             font-size: 2.8rem;
             text-align: center;
@@ -84,10 +86,23 @@
         /* Contact info styles */
         .contact-info {
             margin-bottom: 30px;
-            text-align: center;
-            color: #444;
+            text-align: left;
+            color: #eee;
             line-height: 1.6;
             font-family: 'Montserrat', sans-serif;
+        }
+        
+        .contact-info-heading {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        
+        .contact-info-bold {
+            font-weight: 700;
+            color: #fff;
         }
         
         /* Contact details section */
@@ -99,10 +114,12 @@
             text-align: center;
         }
         
-        /* Individual contact detail box */
+        /* Individual contact detail box (frosted transparent style) */
         .contact-detail {
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
@@ -113,12 +130,12 @@
         
         .contact-detail h3 {
             margin-bottom: 10px;
-            color: #333;
+            color: #fff;
             font-family: 'Exo 2', sans-serif;
         }
         
         .contact-detail p {
-            color: #555;
+            color: #eee;
             font-family: 'Montserrat', sans-serif;
         }
         
@@ -149,31 +166,11 @@
                 margin-bottom: 25px;
             }
         }
-        
-        .contact-detail {
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        
-        .contact-detail:hover {
-            transform: translateY(-5px);
-        }
-        
-        .contact-detail h3 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .contact-detail p {
-            color: #555;
-        }
     </style>
 </head>
 <body>
     <!-- Fixed background -->
-    <div id="canvas-container" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-color: #030b35;"></div>
+    <div id="canvas-container"></div>
     
     <!-- Navbar -->
     <nav class="navbar">
@@ -209,7 +206,11 @@
         <div class="content-box">
             <h1 data-translate="contact-title">Contact Us</h1>
             
-            <p class="contact-info" data-translate="contact-info">We'd love to hear from you! Whether you have a question about our work, want to collaborate, or just want to say hello, feel free to reach out to us.</p>
+            <p class="contact-info" data-translate="contact-info">Ready to explore what's next?</p>
+            <p class="contact-info" data-translate="contact-info-2">Whether you're an artist experimenting with AI, an athlete curious about performance technology, a researcher with an interdisciplinary vision, or simply someone who believes the future should be built together — we want to hear from you.</p>
+            
+            <p class="contact-info" data-translate="contact-info-3">Got a project idea that doesn't fit traditional categories? Perfect. That's exactly where we thrive.</p>
+            <p class="contact-info" data-translate="contact-info-4">Let's create something unexpected.</p>
             
             <div class="contact-details">
                 <div class="contact-detail">

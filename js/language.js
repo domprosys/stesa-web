@@ -61,7 +61,7 @@ const translations = {
         
         // Projects page
         'projects-title': 'Projects',
-        'projects-intro': 'Explore our innovative projects at the intersection of technology, society, sports, and arts. Each project demonstrates our commitment to pushing boundaries and creating meaningful impact.',
+        'projects-intro': 'We\'re building the future of human expression, one experiment at a time. Stay tuned — the most exciting collaborations are just beginning.',
         'category-society': 'Society',
         'category-technology': 'Technology',
         'category-sports': 'Sports',
@@ -85,16 +85,35 @@ const translations = {
         
         // About page
         'about-title': 'About STESA',
-        'about-intro': 'At STESA, we believe that expression takes many forms — a gesture, a movement, a brushstroke, a codebase. In a time when technology mediates nearly every facet of human experience, we explore how arts and sports — long seen as separate worlds — are converging through new tools, spaces, and logics.',
-        'about-mission': 'We see the artist and the athlete not as opposites, but as kin: bodies in motion, engaging systems, seeking form, rhythm, and meaning. Whether it\'s through movement, visual expression, or digital immersion, they both craft experiences that resonate, provoke, and connect.',
-        'about-history': 'Technology is no longer just a tool — it is a stage, a collaborator, a new kind of canvas or arena. From AI-generated choreography to gamified physical spaces, from interactive installations to digitally enhanced performance, the boundaries are blurring.',
-        'about-vision': 'STESA exists to cultivate this shared terrain of human expression, supporting projects that are not defined by discipline, but by curiosity, embodiment, and innovation.',
+        'about-intro': 'We are STESA — the Society for Emerging Technologies, Sports, and Arts — and we believe that the future of human expression lives at the intersection of movement, creativity, and technology.',
+        'about-vision-title': 'Our Vision',
+        'about-vision-p1': 'In an era where artificial intelligence can generate art, where sensors can track every heartbeat, and where digital spaces become venues for performance, we ask: How do emerging technologies reshape the way we move, create, and connect?',
+        'about-vision-p2': 'We don\'t see technology as replacing human creativity — we see it as amplifying it. The athlete perfecting their form through motion analysis. The artist collaborating with AI to push creative boundaries. The community gathering around new forms of digital play. These are the stories we\'re here to tell and the futures we\'re here to build.',
+        'about-what-we-do-title': 'What We Do',
+        'about-what-we-do-p1': 'We curate experiences that reveal technology\'s potential to enrich daily life. From new media art exhibitions and interactive installations to our emerging sports initiatives that bring disc golf and functional fitness to new communities.',
+        'about-what-we-do-p2': 'We build bridges between disciplines that have traditionally operated in isolation. Our projects live where code meets canvas, where data meets movement, where innovation meets tradition.',
+        'about-what-we-do-p3': 'We democratize access to cutting-edge tools and knowledge. Whether through workshops on digital art creation, research into wellness protocols backed by telemetric data, or educational programs that help young people navigate an AI-augmented world, we believe everyone should have a seat at the table of technological progress.',
+        'about-approach-title': 'Our Approach',
+        'about-approach-p1': 'We\'re not interested in technology for its own sake. We\'re interested in technology that makes us more human — more creative, more connected, more capable of meaningful expression. Every project we undertake asks the same fundamental question: How can this make life richer, more playful, more authentic?',
+        'about-approach-p2': 'From our base in Bucharest, we\'re building a community of artists, athletes, technologists, and curious minds who share this vision. We\'re creating spaces — both physical and digital — where experimentation thrives and where the next generation of creative expression can emerge.',
+        'about-approach-p3': 'STESA exists because the future of human expression won\'t be created in isolation. It will be created together, at the edges where disciplines meet and possibilities multiply.',
+        
+        // Team page
+        'team': 'Team',
+        'team-description-1': 'We are a collective of forward-thinking individuals who believe the future is built at the edges.',
+        'team-description-2': 'From technologists to artists, researchers to athletes — we\'re united by curiosity and a shared conviction that the most interesting work happens where disciplines collide. Our team grows organically as we connect with like-minded pioneers who see possibility where others see boundaries.',
+        'team-description-3': 'If you\'re drawn to the spaces between fields, you might just be one of us.',
         
         // Contact page
         'contact-title': 'Contact Us',
-        'contact-info': 'We\'d love to hear from you! Whether you have a question about our work, want to collaborate, or just want to say hello, feel free to reach out to us.',
+        'contact-info': 'Ready to explore what\'s next?',
+        'contact-info-2': 'Whether you\'re an artist experimenting with AI, an athlete curious about performance technology, a researcher with an interdisciplinary vision, or simply someone who believes the future should be built together — we want to hear from you.',
+        'contact-info-3': 'Got a project idea that doesn\'t fit traditional categories? Perfect. That\'s exactly where we thrive.',
+        'contact-info-4': 'Let\'s create something unexpected.',
         'contact-email-title': 'Email',
-        
+        // Team member roles
+        'president': 'President',
+        'vicepresident': 'Vicepresident',
     },
     ro: {
         // Navbar
@@ -157,7 +176,7 @@ const translations = {
         
         // Projects page
         'projects-title': 'Proiecte',
-        'projects-intro': 'Explorați proiectele noastre inovatoare la intersecția dintre tehnologie, societate, sport și arte. Fiecare proiect demonstrează angajamentul nostru de a depăși limitele și de a crea un impact semnificativ.',
+        'projects-intro': 'Construim viitorul expresiei umane, un experiment odată. Rămâneți conectați — cele mai interesante colaborări abia încep.',
         'category-society': 'Societate',
         'category-technology': 'Tehnologie',
         'category-sports': 'Sport',
@@ -181,16 +200,35 @@ const translations = {
         
         // About page
         'about-title': 'Despre STESA',
-        'about-intro': 'La STESA, credem că expresia ia multe forme — un gest, o mișcare, o tușă de pensulă, un cod. Într-o perioadă în care tehnologia mediază aproape fiecare aspect al experienței umane, explorăm cum artele și sporturile — văzute de mult timp ca lumi separate — converg prin noi instrumente, spații și logici.',
-        'about-mission': 'Vedem artistul și atletul nu ca opuși, ci ca rude: corpuri în mișcare, angajând sisteme, căutând formă, ritm și sens. Fie că este vorba de mișcare, expresie vizuală sau imersiune digitală, amândoi creează experiențe care rezonează, provoacă și conectează.',
-        'about-history': 'Tehnologia nu mai este doar un instrument — este o scenă, un colaborator, un nou tip de pânză sau arenă. De la coregrafie generată de AI la spații fizice gamificate, de la instalații interactive la performanțe digital îmbunătățite, granițele se estompează.',
-        'about-vision': 'STESA există pentru a cultiva acest teren comun de expresie umană, susținând proiecte care nu sunt definite de disciplină, ci de curiozitate, întrupare și inovație.',
+        'about-intro': 'Suntem STESA — Societatea pentru Tehnologii Emergente, Sport și Arte — și credem că viitorul expresiei umane trăiește la intersecția mișcării, creativității și tehnologiei.',
+        'about-vision-title': 'Viziunea Noastră',
+        'about-vision-p1': 'Într-o eră în care inteligența artificială poate genera artă, în care senzorii pot urmări fiecare bătaie a inimii și în care spațiile digitale devin scene pentru performance, ne întrebăm: cum modelează tehnologiile emergente modul în care ne mișcăm, creăm și conectăm?',
+        'about-vision-p2': 'Nu vedem tehnologia ca pe un înlocuitor al creativității umane — o vedem ca pe un amplificator. Atletul care își perfecționează forma prin analiza mișcării. Artistul care colaborează cu AI pentru a depăși limitele expresiei. Comunitatea care se adună în jurul noilor forme de joc digital. Acestea sunt poveștile pe care le spunem și viitorurile pe care le construim.',
+        'about-what-we-do-title': 'Ce Facem',
+        'about-what-we-do-p1': 'Curăm experiențe care dezvăluie potențialul tehnologiei de a îmbogăți viața cotidiană. De la expoziții de artă new media și instalații interactive, până la inițiative sportive emergente care aduc disc golf și fitness funcțional în noi comunități.',
+        'about-what-we-do-p2': 'Construim punți între discipline care au tradițional funcționat izolată. Proiectele noastre trăiesc acolo unde codul întâlnește pânza, unde datele întâlnesc mișcarea, unde inovația îmbrățișează tradiția.',
+        'about-what-we-do-p3': 'Democratizăm accesul la instrumente și cunoștințe de ultimă generație. Fie prin ateliere de artă digitală, cercetare în protocoale de wellness bazate pe date telemetrice, sau programe educaționale care ajută tinerii să navigheze într-o lume augmentată de AI, credem că fiecare merită un loc la masa progresului tehnologic.',
+        'about-approach-title': 'Abordarea Noastră',
+        'about-approach-p1': 'Nu ne interesează tehnologia de dragul tehnologiei. Ne interesează tehnologia care ne face mai umani — mai creativi, mai conectați, mai capabili de exprimare autentică. Fiecare proiect pe care îl întreprindem pune aceeași întrebare: cum poate face viața mai bogată, mai jucăușă, mai autentică?',
+        'about-approach-p2': 'Din baza noastră din București, creăm o comunitate de artiști, atleți, tehnologi și minți curioase care împărtășesc această viziune. Construim spații — fizice și digitale — unde experimentul prosperă și unde poate apărea următoarea generație de expresie creativă.',
+        'about-approach-p3': 'STESA există pentru că viitorul expresiei umane nu se va crea în izolare. Se va crea împreună, la marginile unde disciplinele se întâlnesc și posibilitățile se înmulțesc.',
+        
+        // Team page
+        'team': 'Echipă',
+        'team-description-1': 'Suntem un colectiv de persoane cu gândire progresistă care cred că viitorul se construiește la margini.',
+        'team-description-2': 'De la tehnologi la artiști, de la cercetători la atleți — suntem uniți de curiozitate și de convingerea comună că cele mai interesante lucrări apar acolo unde disciplinele se ciocnesc. Echipa noastră crește organic pe măsură ce ne conectăm cu pionieri care văd posibilități acolo unde alții văd limite.',
+        'team-description-3': 'Dacă ești atras de spațiile dintre domenii, s-ar putea să fii unul dintre noi.',
         
         // Contact page
         'contact-title': 'Contactează-ne',
-        'contact-info': 'Ne-ar plăcea să auzim de la tine! Fie că ai o întrebare despre munca noastră, dorești să colaborezi sau doar vrei să ne saluți, nu ezita să ne contactezi.',
+        'contact-info': 'Gata să explorezi ce urmează?',
+        'contact-info-2': 'Fie că ești un artist care experimentează cu AI, un atlet curios despre tehnologia performanței, un cercetător cu o viziune interdisciplinară, sau pur și simplu cineva care crede că viitorul ar trebui construit împreună — vrem să auzim de la tine.',
+        'contact-info-3': 'Ai o idee de proiect care nu se încadrează în categorii tradiționale? Perfect. Exact acolo excelăm.',
+        'contact-info-4': 'Hai să creăm ceva neașteptat.',
         'contact-email-title': 'Email',
-        
+        // Team member roles
+        'president': 'Președinte',
+        'vicepresident': 'Vicepreședinte',
     }
 };
 

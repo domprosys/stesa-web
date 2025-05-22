@@ -56,6 +56,25 @@ const subtitles = [
 // Global variable to store the currently selected subtitle
 let currentSubtitle = null;
 
+// Typewriter helper: writes text char-by-char with cursor
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'typewriter-cursor';
+    cursor.textContent = '|';
+    element.appendChild(cursor);
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            cursor.insertAdjacentText('beforebegin', text.charAt(i));
+            i++;
+        } else {
+            clearInterval(interval);
+            cursor.classList.add('blink');
+        }
+    }, speed);
+}
+
 // Function to set a random subtitle with typewriter effect
 function setRandomSubtitle() {
     // Get a random subtitle from the array
@@ -69,14 +88,12 @@ function setRandomSubtitle() {
     // Get the current language (default to Romanian if not set)
     const currentLang = localStorage.getItem('stesa-language') || 'ro';
     
-    // Clear any existing content and prepare for typewriter effect
+    // Clear content and start typewriter effect
     subtitleElement.innerHTML = '';
-    
-    // Create a span for the typewriter effect
     const typewriterSpan = document.createElement('span');
     typewriterSpan.className = 'typewriter-text';
-    typewriterSpan.textContent = currentSubtitle[currentLang];
     subtitleElement.appendChild(typewriterSpan);
+    typeWriter(typewriterSpan, currentSubtitle[currentLang], 50);
     
     // Remove the data-translate attribute to prevent the language switcher from overriding it
     subtitleElement.removeAttribute('data-translate');
@@ -93,14 +110,12 @@ function updateSubtitleLanguage(lang) {
     const subtitleElement = document.getElementById('random-subtitle');
     if (!subtitleElement) return;
     
-    // Clear any existing content
+    // Clear and run typewriter effect for new language
     subtitleElement.innerHTML = '';
-    
-    // Create a span for the typewriter effect
     const typewriterSpan = document.createElement('span');
     typewriterSpan.className = 'typewriter-text';
-    typewriterSpan.textContent = currentSubtitle[lang];
     subtitleElement.appendChild(typewriterSpan);
+    typeWriter(typewriterSpan, currentSubtitle[lang], 50);
 }
 
 // Make the update function globally accessible
@@ -135,14 +150,12 @@ function setNewRandomSubtitle() {
     // Get the current language (default to Romanian if not set)
     const currentLang = localStorage.getItem('stesa-language') || 'ro';
     
-    // Clear any existing content and prepare for typewriter effect
+    // Clear and start typewriter effect for next subtitle
     subtitleElement.innerHTML = '';
-    
-    // Create a span for the typewriter effect
     const typewriterSpan = document.createElement('span');
     typewriterSpan.className = 'typewriter-text';
-    typewriterSpan.textContent = currentSubtitle[currentLang];
     subtitleElement.appendChild(typewriterSpan);
+    typeWriter(typewriterSpan, currentSubtitle[currentLang], 50);
     
     // Remove the data-translate attribute to prevent the language switcher from overriding it
     subtitleElement.removeAttribute('data-translate');

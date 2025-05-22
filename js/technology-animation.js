@@ -30,44 +30,15 @@ let technologyAnimation = {
         this.renderer.setClearColor(0x000000, 0);
         this.container.appendChild(this.renderer.domElement);
         
-        // Create a 3D grid of cubes
-        const gridSize = 4; // 4x4x4 grid
-        const spacing = 4;
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        
-        // Create a group to hold all cubes
-        this.particles = new THREE.Group();
-        
-        // Color options - purple/magenta theme for technology
-        const colors = [
-            new THREE.Color(0xcc00cc), // Magenta (primary)
-            new THREE.Color(0x9900cc), // Purple
-            new THREE.Color(0xff33ff), // Light magenta
-            new THREE.Color(0xcc33ff)  // Light purple
-        ];
-        
-        for (let x = 0; x < gridSize; x++) {
-            for (let y = 0; y < gridSize; y++) {
-                for (let z = 0; z < gridSize; z++) {
-                    const material = new THREE.MeshBasicMaterial({
-                        color: colors[Math.floor(Math.random() * colors.length)],
-                        wireframe: true,
-                        transparent: true,
-                        opacity: 0.8
-                    });
-                    
-                    const cube = new THREE.Mesh(geometry, material);
-                    
-                    // Position in grid (centered)
-                    cube.position.x = (x - gridSize/2 + 0.5) * spacing;
-                    cube.position.y = (y - gridSize/2 + 0.5) * spacing;
-                    cube.position.z = (z - gridSize/2 + 0.5) * spacing;
-                    
-                    this.particles.add(cube);
-                }
-            }
-        }
-        
+        // Create a single wireframe icosahedron mesh for a more organic 'mesh' look
+        const geometry = new THREE.IcosahedronGeometry(3, 4);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0xcc00cc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.8
+        });
+        this.particles = new THREE.Mesh(geometry, material);
         this.scene.add(this.particles);
         
         // Add resize handler
@@ -80,16 +51,10 @@ let technologyAnimation = {
         this.animationId = requestAnimationFrame(this.animate.bind(this));
         this.time += 0.01;
         
-        // Rotate the entire grid
+        // Rotate the entire mesh
         if (this.particles) {
             this.particles.rotation.x = Math.sin(this.time * 0.3) * 0.2;
             this.particles.rotation.y = this.time * 0.2;
-            
-            // Pulse each cube
-            this.particles.children.forEach((cube, i) => {
-                const pulseFactor = 1 + 0.1 * Math.sin(this.time * 2 + i * 0.1);
-                cube.scale.set(pulseFactor, pulseFactor, pulseFactor);
-            });
         }
         
         // Render

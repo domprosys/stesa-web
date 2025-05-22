@@ -1,0 +1,114 @@
+/* navbar.css: styles for the fixed top navigation bar */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.05); /* very transparent white */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* On hover, slightly brighten */
+.navbar:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+/* Home placeholder */
+.nav-home-link { flex: 1; padding-left: 30px; }
+
+/* Center links */
+.nav-links { display: flex; gap: 40px; justify-content: center; flex: 2; }
+
+/* Right aligned language switcher */
+.language-switcher { display: flex; gap: 5px; flex: 1; justify-content: flex-end; padding-right: 30px; }
+
+/* Link appearance */
+.nav-home-link a,
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+}
+
+/* Hover = brand blue text with subtle glass highlight */
+.nav-home-link a:hover,
+.nav-links a:hover { color: #06f; background-color: rgba(0, 102, 255, 0.15); }
+
+/* Underline animation */
+.nav-home-link a::after,
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #06f;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-home-link a:hover::after,
+.nav-links a:hover::after { width: 70%; }
+
+/* Active link */
+.nav-home-link a.active,
+.nav-links a.active {
+  background-color: rgba(0, 102, 255, 0.25);
+  color: #06f;
+  font-weight: 600;
+}
+
+/* Language buttons */
+.language-switcher button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.language-switcher button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.language-switcher button.active {
+  background: #fff;
+  color: #06f;
+  border-color: #fff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) { .navbar { padding: 15px 20px; }
+  .nav-links { gap: 20px; }
+  .nav-home-link { padding-left: 0; }
+}
+
+@media (max-width: 480px) {
+  .navbar { padding: 10px 15px; flex-wrap: wrap; justify-content: center; }
+  .nav-links { gap: 10px; flex: 1 1 100%; order: 3; margin-top: 10px; }
+  .nav-home-link { flex: 1 1 auto; order: 1; text-align: left; }
+  .language-switcher { flex: 1 1 auto; order: 2; text-align: right; }
+}
