@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="head-placeholder"></div>
     <title>STESA - Projects</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mobile-fix.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/containers.css">
     <style>
-        /* From contact.html: frosted content box */
-        .main-container { display: flex; justify-content: center; align-items: center; flex: 1; padding: 20px; box-sizing: border-box; margin-top: 120px; }
-        .content-box { width: 800px; max-width: 90%; padding: 45px 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); position: relative; overflow: hidden; box-sizing: border-box; z-index: 1; }
-        .content-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #0066cc, #cc00cc, #009900); }
-        .content-box h1 { font-family: 'Montserrat', sans-serif; color: #fff; margin-bottom: 35px; font-size: 2.8rem; text-align: center; font-weight: 700; letter-spacing: 0.02em; position: relative; padding-bottom: 15px; }
-        .content-box h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background-color: rgba(0, 102, 204, 0.7); }
-        .contact-info { margin-bottom: 30px; text-align: left; color: #eee; line-height: 1.6; font-family: 'Montserrat', sans-serif; }
         
         /* Project container styles */
         .projects-container {
@@ -97,32 +85,33 @@
             background: linear-gradient(45deg, rgba(204, 0, 204, 0.2), rgba(0, 153, 0, 0.2));
         }
     </style>
-    <!-- Internal styles removed; using global styles.css and mobile-fix.css -->
 </head>
 <body>
     <div id="navbar-placeholder"></div>
     
     <div id="canvas-container"></div>
     
-    <div class="main-container">
-        <div class="content-box">
-            <h1 data-translate="projects-title">Projects</h1>
+    <div class="page-layout">
+        <div class="page-container">
+            <h1 class="page-title" data-translate="projects-title">Projects</h1>
             
-            <p class="contact-info" data-translate="projects-intro">Explore our innovative projects at the intersection of technology, society, sports, and arts. Each project demonstrates our commitment to pushing boundaries and creating meaningful impact.</p>
+            <div class="page-content">
+                <p data-translate="projects-intro">Explore our innovative projects at the intersection of technology, society, sports, and arts. Each project demonstrates our commitment to pushing boundaries and creating meaningful impact.</p>
             
-            <div class="projects-container">
-                <div class="projects-grid">
-                    <!-- Project 1: Coming Soon -->
-                    <div class="project-card">
-                        <div class="project-locked">
-                            SOON TO BE ANNOUNCED
+                <div class="projects-container">
+                    <div class="projects-grid">
+                        <!-- Project 1: Coming Soon -->
+                        <div class="project-card">
+                            <div class="project-locked">
+                                SOON TO BE ANNOUNCED
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- Project 2: Coming Soon -->
-                    <div class="project-card">
-                        <div class="project-locked">
-                            SOON TO BE ANNOUNCED
+                        
+                        <!-- Project 2: Coming Soon -->
+                        <div class="project-card">
+                            <div class="project-locked">
+                                SOON TO BE ANNOUNCED
+                            </div>
                         </div>
                     </div>
                 </div>

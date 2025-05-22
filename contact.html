@@ -1,96 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="head-placeholder"></div>
     <title>Contact STESA</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mobile-fix.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/containers.css">
     <style>
-        /* Reset and base styles */
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        /* Main content container */
-        .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        
-        /* Content box */
-        .content-box {
-            width: 800px;
-            max-width: 90%;
-            padding: 45px 50px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-            position: relative;
-            overflow: hidden;
-            box-sizing: border-box;
-            z-index: 1;
-        }
-        
-        /* Gradient bar at top */
-        .content-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900);
-        }
-        
-        /* Heading styles */
-        .content-box h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            margin-bottom: 35px;
-            font-size: 2.8rem;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        /* Heading underline */
-        .content-box h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: rgba(0, 102, 204, 0.7);
-        }
-        
-        /* Contact info styles */
-        .contact-info {
-            margin-bottom: 30px;
-            text-align: left;
-            color: #eee;
-            line-height: 1.6;
-            font-family: 'Montserrat', sans-serif;
-        }
         
         .contact-info-heading {
             font-size: 1.5rem;
@@ -176,21 +90,23 @@
     <div id="navbar-placeholder"></div>
     
     <!-- Main content container -->
-    <div class="main-container">
+    <div class="page-layout">
         <!-- Content box -->
-        <div class="content-box">
-            <h1 data-translate="contact-title">Contact Us</h1>
+        <div class="page-container">
+            <h1 class="page-title" data-translate="contact-title">Contact Us</h1>
             
-            <p class="contact-info" data-translate="contact-info">Ready to explore what's next?</p>
-            <p class="contact-info" data-translate="contact-info-2">Whether you're an artist experimenting with AI, an athlete curious about performance technology, a researcher with an interdisciplinary vision, or simply someone who believes the future should be built together — we want to hear from you.</p>
-            
-            <p class="contact-info" data-translate="contact-info-3">Got a project idea that doesn't fit traditional categories? Perfect. That's exactly where we thrive.</p>
-            <p class="contact-info" data-translate="contact-info-4">Let's create something unexpected.</p>
-            
-            <div class="contact-details">
-                <div class="contact-detail">
-                    <h3 data-translate="contact-email-title">Email</h3>
-                    <p>contact@stesa.ro</p>
+            <div class="page-content">
+                <p data-translate="contact-info">Ready to explore what's next?</p>
+                <p data-translate="contact-info-2">Whether you're an artist experimenting with AI, an athlete curious about performance technology, a researcher with an interdisciplinary vision, or simply someone who believes the future should be built together — we want to hear from you.</p>
+                
+                <p data-translate="contact-info-3">Got a project idea that doesn't fit traditional categories? Perfect. That's exactly where we thrive.</p>
+                <p data-translate="contact-info-4">Let's create something unexpected.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <h3 data-translate="contact-email-title">Email</h3>
+                        <p>contact@stesa.ro</p>
+                    </div>
                 </div>
             </div>
         </div>

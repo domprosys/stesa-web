@@ -1,3 +1,22 @@
+// Load shared head component
+async function loadHead() {
+    try {
+        const response = await fetch('components/head.html');
+        const headHTML = await response.text();
+        
+        // Find head placeholder or insert into head
+        const headPlaceholder = document.getElementById('head-placeholder');
+        if (headPlaceholder) {
+            headPlaceholder.outerHTML = headHTML;
+        }
+        
+        return true;
+    } catch (error) {
+        console.error('Failed to load head component:', error);
+        return false;
+    }
+}
+
 // Navbar loader utility
 async function loadNavbar() {
     try {
@@ -70,5 +89,8 @@ function initializeMobileMenu() {
     }
 }
 
-// Load navbar when DOM is ready
-document.addEventListener('DOMContentLoaded', loadNavbar);
+// Load components when DOM is ready
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadHead();
+    await loadNavbar();
+});

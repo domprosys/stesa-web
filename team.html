@@ -1,84 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="head-placeholder"></div>
     <title>STESA Team</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mobile-fix.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset any potential conflicting styles */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
-        
-        /* Content styling */
-        .content {
-            width: 800px;
-            max-width: 90%;
-            margin: 300px auto 60px;
-            box-sizing: border-box;
-            /* position: relative; */
-            /* left: 0 !important; */
-            /* right: 0 !important; */
-            /* transform: none !important; */
-        }
-        
-        .content h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        /* Team description container */
-        .team-description {
-            width: 100%;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-            padding: 45px 50px;
-            box-sizing: border-box;
-            position: relative;
-            margin-bottom: 40px;
-        }
-        
-        /* Gradient bar at top */
-        .team-description::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900);
-        }
-        
-        .team-description p {
-            font-family: 'Montserrat', sans-serif;
-            color: #eee;
-            margin-bottom: 15px;
-            line-height: 1.6;
-            font-size: 1.1rem;
-            text-align: left;
-        }
-        
-        .team-description p:last-child {
-            margin-bottom: 0;
-        }
-        
+        /* Team-specific styles only */
         .team-grid {
             display: flex;
             flex-wrap: wrap;
@@ -123,39 +49,14 @@
             margin-bottom: 10px;
         }
         
-        .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding-top: 50px;
-        }
-        
-        /* Mobile responsive styles - using higher specificity */
+        /* Mobile responsive styles */
         @media (max-width: 768px) {
-            body .content {
-                margin: 120px auto 40px !important;
-                max-width: 95%;
-            }
-            
-            .team-description {
-                padding: 35px 30px;
-            }
-            
             .team-member {
                 width: calc(50% - 20px);
             }
         }
         
         @media (max-width: 480px) {
-            #team-content.content {
-                margin: 100px auto 30px !important;
-                margin-top: 100px !important;
-            }
-            
-            .team-description {
-                padding: 25px 20px;
-            }
-            
             .team-member {
                 width: 100%;
                 margin: 10px 0;
@@ -166,16 +67,17 @@
 <body>
     <div id="navbar-placeholder"></div>
     
-    <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
+    <div id="canvas-container"></div>
     
-    <div class="content" id="team-content" style="margin-top: 100px !important; margin-bottom: 30px !important; position: static !important; top: auto !important; transform: none !important;">
-        <h1 data-translate="team">Our Team</h1>
-        <div class="team-description">
-            <p data-translate="team-description-1">We are a collective of forward-thinking individuals who believe the future is built at the edges.</p>
-            <p data-translate="team-description-2">From technologists to artists, researchers to athletes — we're united by curiosity and a shared conviction that the most interesting work happens where disciplines collide. Our team grows organically as we connect with like-minded pioneers who see possibility where others see boundaries.</p>
-            <p data-translate="team-description-3">If you're drawn to the spaces between fields, you might just be one of us.</p>
-        </div>
-        <div class="team-grid">
+    <div class="page-layout">
+        <div class="page-container">
+            <h1 class="page-title" data-translate="team">Our Team</h1>
+            <div class="page-content">
+                <p data-translate="team-description-1">We are a collective of forward-thinking individuals who believe the future is built at the edges.</p>
+                <p data-translate="team-description-2">From technologists to artists, researchers to athletes — we're united by curiosity and a shared conviction that the most interesting work happens where disciplines collide. Our team grows organically as we connect with like-minded pioneers who see possibility where others see boundaries.</p>
+                <p data-translate="team-description-3">If you're drawn to the spaces between fields, you might just be one of us.</p>
+            </div>
+            <div class="team-grid">
             <div class="team-member">
                 <div class="team-member-photo"></div>
                 <div class="team-member-info">
@@ -201,6 +103,7 @@
                 <div class="team-member-info">
                     <div class="team-member-name">Norbert Fodor</div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

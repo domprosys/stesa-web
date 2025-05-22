@@ -1,135 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="head-placeholder"></div>
     <title>About STESA</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mobile-fix.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Fira+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset any potential conflicting styles */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
-        
-        /* Simple centered container */
-        .about-container {
-            width: 800px;
-            max-width: 90%;
-            margin: 120px auto 60px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-            padding: 45px 50px;
-            box-sizing: border-box;
-            position: relative;
-            left: 0 !important;
-            right: 0 !important;
-            transform: none !important;
-        }
-        
-        .about-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #0066cc, #cc00cc, #009900);
-        }
-        
-        .about-container h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            margin-bottom: 35px;
-            font-size: 2.8rem;
-            text-align: center;
-            letter-spacing: 0.02em;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .about-container h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: rgba(0, 102, 204, 0.7);
-        }
-        
-        .about-container p {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            color: #eee;
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 0.01em;
-            text-align: left;
-        }
-        
-        .about-container p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .about-container h2 {
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            margin-top: 32px;
-            margin-bottom: 16px;
-            font-size: 1.6rem;
-            letter-spacing: 0.02em;
-            text-align: left;
-        }
-        
-        @media (max-width: 768px) {
-            .about-container {
-                margin: 100px auto 40px;
-                padding: 35px 30px;
-            }
-            
-            .about-container h1 {
-                font-size: 2.4rem;
-            }
-            
-            .about-container p {
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .about-container {
-                max-width: 95%;
-                margin: 90px auto 30px;
-                padding: 25px 20px;
-            }
-            
-            .about-container h1 {
-                font-size: 2rem;
-                margin-bottom: 25px;
-            }
-        }
-    </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
     
     <div id="canvas-container"></div>
     
-    <div class="about-container">
-        <h1 data-translate="about-title">About STESA</h1>
+    <div class="page-layout">
+        <div class="page-container">
+            <h1 class="page-title" data-translate="about-title">About STESA</h1>
+            <div class="page-content">
         <p data-translate="about-intro">We are STESA — the Society for Emerging Technologies, Sports, and Arts — and we believe that the future of human expression lives at the intersection of movement, creativity, and technology.</p>
         <h2 data-translate="about-vision-title">Our Vision</h2>
         <p data-translate="about-vision-p1">In an era where artificial intelligence can generate art, where sensors can track every heartbeat, and where digital spaces become venues for performance, we ask: How do emerging technologies reshape the way we move, create, and connect?</p>
@@ -141,7 +24,9 @@
         <h2 data-translate="about-approach-title">Our Approach</h2>
         <p data-translate="about-approach-p1">We're not interested in technology for its own sake. We're interested in technology that makes us more human — more creative, more connected, more capable of meaningful expression. Every project we undertake asks the same fundamental question: How can this make life richer, more playful, more authentic?</p>
         <p data-translate="about-approach-p2">From our base in Bucharest, we're building a community of artists, athletes, technologists, and curious minds who share this vision. We're creating spaces — both physical and digital — where experimentation thrives and where the next generation of creative expression can emerge.</p>
-        <p data-translate="about-approach-p3">STESA exists because the future of human expression won't be created in isolation. It will be created together, at the edges where disciplines meet and possibilities multiply.</p>
+                <p data-translate="about-approach-p3">STESA exists because the future of human expression won't be created in isolation. It will be created together, at the edges where disciplines meet and possibilities multiply.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Load scripts -->
