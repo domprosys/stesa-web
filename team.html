@@ -129,39 +129,46 @@
             align-items: flex-start;
             padding-top: 50px;
         }
+        
+        /* Mobile responsive styles - using higher specificity */
+        @media (max-width: 768px) {
+            body .content {
+                margin: 120px auto 40px !important;
+                max-width: 95%;
+            }
+            
+            .team-description {
+                padding: 35px 30px;
+            }
+            
+            .team-member {
+                width: calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #team-content.content {
+                margin: 100px auto 30px !important;
+                margin-top: 100px !important;
+            }
+            
+            .team-description {
+                padding: 25px 20px;
+            }
+            
+            .team-member {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <!-- Mobile menu toggle button (only visible on mobile) -->
-        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-            <div class="hamburger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <!-- Empty div for layout consistency (helps with centering) -->
-        <div class="nav-home-link">
-            <!-- Removed STESA text -->
-        </div>
-        <!-- Regular nav links (hidden on mobile) -->
-        <div class="nav-links">
-            <a href="index.html" data-translate="home">Acasa</a>
-            <a href="about.html" data-translate="about">Despre</a>
-            <a href="projects.html" data-translate="projects">Proiecte</a>
-            <a href="team.html" class="active" data-translate="team">Echipă</a>
-            <a href="contact.html" data-translate="contact">Contact</a>
-        </div>
-        <div class="language-switcher">
-            <button id="lang-en" class="active">EN</button>
-            <button id="lang-ro">RO</button>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
     
     <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #030b35;"></div>
     
-    <div class="content">
+    <div class="content" id="team-content" style="margin-top: 100px !important; margin-bottom: 30px !important; position: static !important; top: auto !important; transform: none !important;">
         <h1 data-translate="team">Our Team</h1>
         <div class="team-description">
             <p data-translate="team-description-1">We are a collective of forward-thinking individuals who believe the future is built at the edges.</p>
@@ -199,10 +206,10 @@
     </div>
 
     <!-- Load scripts -->
+    <script src="js/navbar-loader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="js/particles-background.js"></script>
     <script src="js/animation-manager.js"></script>
     <script src="js/language.js"></script>
-    <script src="js/mobile-menu.js"></script>
 </body>
 </html>

@@ -283,8 +283,8 @@ function updateLanguage(lang) {
     localStorage.setItem('stesa-language', lang);
 }
 
-// Initialize language switcher
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize language switcher - called after navbar is loaded
+function initializeLanguageSystem() {
     // Add click event to language switcher buttons
     document.querySelectorAll('.language-switcher button').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -299,6 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Set initial active button
     document.querySelectorAll('.language-switcher button').forEach(btn => {
+        btn.classList.remove('active');
         if (btn.textContent.toLowerCase() === initialLang) {
             btn.classList.add('active');
         }
@@ -306,4 +307,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Apply initial language
     updateLanguage(initialLang);
+}
+
+// Initialize language switcher when DOM is ready (fallback for pages without navbar loader)
+document.addEventListener('DOMContentLoaded', () => {
+    // Small delay to ensure navbar might be loaded
+    setTimeout(() => {
+        if (document.querySelector('.language-switcher button')) {
+            initializeLanguageSystem();
+        }
+    }, 100);
 });

@@ -100,32 +100,7 @@
     <!-- Internal styles removed; using global styles.css and mobile-fix.css -->
 </head>
 <body>
-    <nav class="navbar">
-        <!-- Mobile menu toggle button (only visible on mobile) -->
-        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-            <div class="hamburger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <!-- Empty div for layout consistency (helps with centering) -->
-        <div class="nav-home-link">
-            <!-- Removed STESA text -->
-        </div>
-        <!-- Regular nav links (hidden on mobile) -->
-        <div class="nav-links">
-            <a href="index.html" data-translate="home">Acasa</a>
-            <a href="about.html" data-translate="about">Despre</a>
-            <a href="projects.html" class="active" data-translate="projects">Proiecte</a>
-            <a href="team.html" data-translate="team">Echipă</a>
-            <a href="contact.html" data-translate="contact">Contact</a>
-        </div>
-        <div class="language-switcher">
-            <button id="lang-en" class="active">EN</button>
-            <button id="lang-ro">RO</button>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
     
     <div id="canvas-container"></div>
     
@@ -208,10 +183,10 @@
     </script>
     
     <!-- Load scripts -->
+    <script src="js/navbar-loader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="js/particles-background.js"></script>
     <script src="js/animation-manager.js"></script>
     <script src="js/language.js"></script>
-    <script src="js/mobile-menu.js"></script>
 </body>
 </html>
